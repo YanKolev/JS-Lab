@@ -1,5 +1,10 @@
-let name = 'John';// string litteral
-let age = '45';//number literal
-let isApproved = false;//boolean literal
-let fistName = undefined;
-let selectColor = null;
+let name = "Igor";
+
+//the expression is a number 1
+alert('hello ${1}'); // hello 1
+
+//the expression is a string "name"
+alert('hello ${"name"}'); //hello name
+
+//the expression is a variable, embed it
+alert( 'hello ${name}'); // hello Igor
