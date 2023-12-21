@@ -1,10 +1,4 @@
-let name = "Igor";
-
-//the expression is a number 1
-alert('hello ${1}'); // hello 1
-
-//the expression is a string "name"
-alert('hello ${"name"}'); //hello name
-
-//the expression is a variable, embed it
-alert( 'hello ${name}'); // hello Igor
+const one = "Hello, ";
+const two = "how are you?";
+const joined = `${one}${two}`
+console.log(joined);
