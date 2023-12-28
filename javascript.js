@@ -1,7 +1,13 @@
-const areEqualInUpperCase = (str1, str2) =>
-  str1.toUpperCase() === str2.toUpperCase();
-const areEqualInLowerCase = (str1, str2) =>
-  str1.toLowerCase() === str2.toLowerCase();
+let a = 0;
+alert( Boolean(a) );
+let b = "0";
+alert( Boolean(b) );
 
-areEqualInUpperCase("ß", "ss"); // true; should be false
-areEqualInLowerCase("ı", "I"); // false; should be true
+alert(a == b);
+//5 > 4 → true
+//"apple" > "pineapple" → false
+//"2" > "12" → true
+//undefined == null → true
+//undefined === null → false
+//null == "\n0\n" → false
+//null === +"\n0\n" → false
