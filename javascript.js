@@ -53,9 +53,40 @@ if (userName === 'Admin') {
 } else {
   alert( "I don't know you" );
 }
+/* Essential concept in coding is functions, 
+which allow you to store a piece of code that does a single task inside a defined block,
+and then call that code whenever you need it using a single short command
+ — rather than having to type out the same code multiple times.*/
 
- function favoriteAnimal(animal) {
-   return animal + " is my favorite animal!"
- }
+//manipulation of text string
+const myText = "I am a string";
+const newString = myText.replace("string", "sausage");
+console.log(newString);
+// the replace() string function takes a source string,
+// and a target string and replaces the source string,
+// with the target string, and returns the newly formed string
 
- console.log(favoriteAnimal('Goat'))
+//manipulation of array
+const myArray = ["I", "love", "chocolate", "frogs"];
+const madeAString = myArray.join(" ");
+console.log(madeAString);
+// the join() function takes an array, joins
+// all the array items together into a single
+// string, and returns this new string
+
+//random number generation
+const myNumber = Math.random();
+// the random() function generates a random number between
+// 0 and up to but not including 1, and returns that number
+
+//This function draws 100 random circles inside a <canvas> element.
+
+function draw() {
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
+  for (let i = 0; i < 100; i++) {
+    ctx.beginPath();
+    ctx.fillStyle = "rgb(255 0 0 / 50%)";
+    ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
+    ctx.fill();
+  }
+}
