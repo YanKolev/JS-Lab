@@ -68,3 +68,59 @@ const output = document.querySelector("#output");
 textBox.addEventListener("keydown", (event) => {
   output.textContent = `You pressed "${event.key}".`;
 });*/
+
+//function favoriteAnimal(animal){
+//  return animal + " is my favorite animal!"
+//}
+
+//console.log(favoriteAnimal('Bear'))
+
+/*
+A parameter is the variable listed inside the parentheses in the function declaration (it’s a declaration time term).
+An argument is the value that is passed to the function when it is called (it’s a call time term).
+*/
+
+/*Arrow functions are handy for simple actions, especially for one-liners. They come in two flavors:
+
+Without curly braces: (...args) => expression – the right side is an expression: the function evaluates it and returns the result. Parentheses can be omitted, if there’s only a single argument, e.g. n => n*2.
+With curly braces: (...args) => { body } – brackets allow us to write multiple statements inside the function, but we need an explicit return to return something.*/
+
+/*function add7 (number){
+  return number + 7;
+}
+const result = add7(5);
+console.log(result);*/
+
+/*function multifply(a, b){
+  return a * b;
+}
+const result = (10 * 9)
+console.log(result);*/
+
+/*function capitalize(str) {
+  // Ensure the string is in lowercase and then capitalize the first letter
+  const lowercaseStr = str.toLowerCase();
+  const capitalized = lowercaseStr.charAt(0).toUpperCase() + lowercaseStr.slice(1);
+  return capitalized;
+}
+
+// Example usage:
+const input1 = "hello"; // All lowercase
+const input2 = "WORLD"; // All uppercase
+const input3 = "gOoD MoRnInG"; // Mix of uppercase and lowercase
+
+console.log(capitalize(input1)); // Output: "Hello"
+console.log(capitalize(input2)); // Output: "World"
+console.log(capitalize(input3)); // Output: "Good morning"*/
+
+
+function lastLetter(str) {
+  // Get the last character of the string using str.length - 1
+  return str.charAt(str.length - 1);
+}
+
+// Example usage:
+console.log(lastLetter("abcd")); // Output: "d"
+console.log(lastLetter("Hello")); // Output: "o"
+console.log(lastLetter("JavaScript")); // Output: "t"
+
