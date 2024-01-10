@@ -30,3 +30,31 @@ for (let i = 1; i <= answer; i++) {
       console.log(i);
     }
   }
+/*We are using the modulus operator (%) here to divide the current number by three. 
+If you recall from a previous lesson, the modulus operator returns the remainder of a division. 
+So if a remainder of 0 is returned from the division, it means the current number is divisible by 3.*/
+
+//If the current number is divisible by 5 then print Buzz.
+for (let i = 1; i <= answer; i++) {
+    if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+//We have one more subproblem to solve to complete the program: 
+//If the current number is divisible by 3 and 5 then print FizzBuzz.
+for (let i = 1; i <= answer; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+
