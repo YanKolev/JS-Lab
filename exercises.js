@@ -31,3 +31,38 @@ if num > 0 {
 } else {
     console.log(num + "is zero.");
 }
+
+//Write a function that takes a nmae as a parameter and returns a greeting message.
+
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+console.log(greet("John"));
+
+//write a function that calcuates the area of a rectangle given its length and width as parameters.
+
+function calculateArea(length, width){
+    return length * width;
+}
+console.log("Area: "+ calculateArea(5,8));
+
+//write a function that takes a number as a parameter and returns its square.
+function square(number){
+    return number *number;
+}
+console.log( "Square: "+ square(4));
+
+//Write a function that takes a number as a parameter,
+//and returns true if its a prime number, false otherwise.
+
+function isPrime(num){
+    if (num <= 1) return false;
+
+    for(let i =2; i <= Math.sqrt(num); i++){
+        if (num % i === 0){
+            return false;
+        }
+    }
+    return true;
+}
+console.log("Is 11 a prime number? "+ isPrime(11));
