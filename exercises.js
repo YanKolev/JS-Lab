@@ -66,3 +66,11 @@ function isPrime(num){
     return true;
 }
 console.log("Is 11 a prime number? "+ isPrime(11));
+
+/* Event Handlers and Callbacks:
+
+Event handlers and callback functions often involve the use of the return statement, especially in asynchronous programming.*/
+button.addEventListener('click', function() {
+    alert('Button clicked!');
+});
+/*In this example, the anonymous function passed to addEventListener is a callback. It doesn't explicitly use the return statement, but the fact that it executes code in response to an event is a form of "returning" control or a result. Asynchronous functions, promises, and callbacks are essential concepts in JavaScript development.*/
