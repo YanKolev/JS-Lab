@@ -1,0 +1,20 @@
+Js is a interpreted language.
+node.js- interpreter
+JS uses JIT compilation, websites-client-side programming.used for interactivity and to dynamically change the content. 
+JS needs 3 things: 
+-code editor, interpreter(bootable environment) and debugger.
+-package managers- enabling management of libraries- containing ready-made solution that we can use in our programs or components of the development enviourment.
+-tast runners and module bundlers- to automate the process and merge the resulting code from many files and libraries- Grunt or webpack
+-tesing framework- allows testing- mocha, jasmin jest
+-security analyzers- used to control the securit of our solution- snyk, retireJS, OWASP dependency check
+
+Interpreter- functions as a runtime environment for programms,
+if we want server-side- node.js. if we want-client side- the web browser we are using
+
+debugger- tool allows you t oslow down or halt execution of program, run instructions steb by step  and analyze state of the program
+-web browser- boot environment, JS interpreted and debugger(dev tools)
+browser has: inspector- to analyze html element of open website, 
+JS console- shows all info about errors, debugger
+
+defer – means that the script should be executed after the whole page is loaded;
+async – means that the script will be executed immediately, but in parallel to parsing the rest of the page.
