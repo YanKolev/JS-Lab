@@ -18,3 +18,48 @@ JS console- shows all info about errors, debugger
 
 defer – means that the script should be executed after the whole page is loaded;
 async – means that the script will be executed immediately, but in parallel to parsing the rest of the page.
+
+
+var. let- variable that can be changed, 
+const- constant- can not be changed. 
+
+var height
+let weight
+console.log(height); // -> undefined
+console.log(weight); // -> Uncaught ReferenceError: weight is not defined
+
+Because we haven't put anything there yet, the result is undefined (the interpreter knows this variable, but it has no value yet – the value is undefined). 
+In the next line, we try to print out the contents of the weight variable ... which we forgot to declare. This time, we will see ReferenceError. 
+The JavaScript interpreter, which executes our program, has informed us that it doesn’t know a variable by this name (so the variable itself is undefined).
+
+One of the basic differences in the use of var and let is that let prevents us from declaring another variable with the same name (an error is generated). 
+Using var allows you to re-declare a variable, which can potentially lead to errors in the program execution.
+
+Let- reserves the variable, while var allows for re-declaring and possible bugs
+
+Initializing a variable- give the variable value. 
+You can assign to a variable: a specific value; the contents of another variable; or, for example, the result returned by a function.
+Data types vary greatly depending on the programming language. In JavaScript, the main types are number and character string.
+Variables in the JavaScript language are untyped (or, to be more precise, they are weakly and dynamically typed).
+ This means that JavaScript will not control what type of value we store in the variable. What exactly is the data type? 
+ You can probably intuitively answer this question yourself. The type determines the belonging of a given data to a certain set 
+ that share the same properties and on which you can perform the same operations.
+
+We can separate the code of a program into blocks. In the blocks that we create using curly brackets, there is a set of instructions, which for some reason should be treated independently.
+ If we declare any variable or constant using let or const, respectively, outside the code blocks, they will be global.
+ What happens if we declare something using let or const inside a block? This will create a local variable or constant. It will be visible only inside the block in which it was declared and in blocks that can optionally be nested in it.
+
+ let height = 180;
+  {
+    let weight = 70;
+    console.log(height); // -> 180
+    console.log(weight); // -> 70
+  }
+console.log(height); // -> 180
+console.log(weight); // -> Uncaught ReferenceError: weight is not defined
+
+var
+In the case of variable declarations using the keyword var, 
+the situation is slightly different. The variable declared using it outside the blocks will, as in the case of let, be global, in other words, it will be visible everywhere. If you declare it inside a block, then... well, it will usually turn out to be global again.
+The problem is that var ignores ordinary program blocks, treating them as if they do not exist. So in what situation can we declare a local variable using var? Only inside a function. We will devote a lot of space to discussing the function, 
+and then we will come back to the problem of the variable scope as well. Now we will try to present and discuss only a simple example, which will show that var variables are sometimes local, too.
