@@ -63,3 +63,19 @@ In the case of variable declarations using the keyword var,
 the situation is slightly different. The variable declared using it outside the blocks will, as in the case of let, be global, in other words, it will be visible everywhere. If you declare it inside a block, then... well, it will usually turn out to be global again.
 The problem is that var ignores ordinary program blocks, treating them as if they do not exist. So in what situation can we declare a local variable using var? Only inside a function. We will devote a lot of space to discussing the function, 
 and then we will come back to the problem of the variable scope as well. Now we will try to present and discuss only a simple example, which will show that var variables are sometimes local, too.
+
+variable declarations using the word var can also be local. if also used in a function.
+
+Variable shadoing- in JS we can declare a global variable and local variable of the same name.
+In the local scope, in which we declare a local variable using its name, we will have access to the local value
+(the global variable is hidden behind the local one, so we do not have access to it in this local scope).
+This is not best programming practice, we should avoid such situations. 
+
+Hoisting- action performed by the JS interpreter, searching for all variable declarations and moving them to the 
+beginning of the range in which they were declared (
+  -to the beginning of the program if they are global,
+  -to the beginning of the block if its a local LET declaration, 
+  -to the begining of the function if its a loal VAR declaration
+)
+All of this happens in the interpreter memory and changes are not visible in code.
+Hoisting is complex and sometimes incoherent dechanism-> 
