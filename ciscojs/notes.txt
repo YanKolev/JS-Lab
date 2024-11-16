@@ -78,4 +78,116 @@ beginning of the range in which they were declared (
   -to the begining of the function if its a loal VAR declaration
 )
 All of this happens in the interpreter memory and changes are not visible in code.
-Hoisting is complex and sometimes incoherent dechanism-> 
+Hoisting is complex and sometimes incoherent dechanism-> hence we need to be areful when using it. 
+
+Data types and conversions
+JS is a weakly typed language, so it allows to change the type of data stored in one variable.
+Numbers can be devided into Integer numbers and real numbers.
+
+In JS datatypes are divided int primitive(or simple) and complex(or composite).
+
+Primitive types can be numbers and strings of characters.
+Complex types can be arrays and objects.
+(if you store data in a primitive type of variable- the data will be atomic(it will not be possible to extract components from it),
+ HOWEVER if the data is stored in a complex type such as an array- will consist of many elements of primitive types which can be extracted)
+
+Literals- its a way of noting specific values(data in the program code). In JS they are used to initialize variables.
+in JS almost each data type has its own literal.
+
+typeof operator:
+the typeof operator is unary(it takes only one argument) and informs us of the type of data indicated as a given argument.
+the argument can be a literal or a variable then it returns a string about the type of data stored in it. There are fixed values assigned to each of the types:
+"undefined"
+"object"
+"boolean"
+"number"
+"bigint"
+"string"
+"symbol"
+"function"
+
+Primitive data types
+in JS there are six primitive data types: 
+Boolean,
+Number,
+BigInt,
+String, 
+Symbol, 
+undefined.
+Null value will be also treated as a separte type. The primitives have a type of data whose values are atomic.(meaning- the value is one indivisible element.)
+
+Boolean- logical data type- takes 2 values- true or false. Mainly used as a conditional expression for deciding what part of the code should be executed,
+OR how long something should be repeated(control flow statement).
+
+Booleans are also used as a FLAG, variable that signals something that can be either present or absent. enabled or disabled. 
+Common prefix for boolean names- 'is'  (ex- isDataValid, isStringTooLong)
+We can perform, without conversion(change to another type) logical operation on boolean values, as known from mathematics.
+such as NOT, AND and OR(the symbols !, && and || correspondingly).
+
+Number- main numeric type that represents both real number(e.g. fractions) and integers.
+The format in which the data of this type is stored in the memory means that the values of this type are sometimes approximate 
+(especially, but not only, very large values or some fractions). It is assumed, among other things, that in order to ensure the correctness of calculations, 
+the integer values should be limited in JavaScript to the range from -(253 – 1) to (253 – 1).
+
+In addition to regular numbers in JavaScript, we use three additional special values, which are: Infinity, -Infinity and NaN (not a number)
+ NaN, is not so much a numerical value as a notification that some arithmetic action (or mathematical function) could not be performed because the argument is either not a number, or cannot be converted to a number.
+
+BigInt- its not used too often- it allows us to write integers of virtually any lenght.
+We can use mathematical operations on BigInts in the same way as on Numbers, but there is a difference when dividing. As the BigInt is an integer type, the division result will always be rounded down to the nearest whole number.
+
+The BigInt does not have its own equivalent of Infinity or NaN values. In the case of the Number type, such values appear when dividing by 0 (Infinity result) or trying to perform an arithmetic action on a value that is not a number (NaN result). In the case of the BigInt type, such actions will generate an error.
+
+
+String- represents sequence of characters forming a piece of text. Most common operatons for text include concatenation, extraction of substing or checking the length of the string.
+Strings like other primitives are immutable, so when we want to change even one letter in a string, in reality we create a new string. 
+
+Trying to perform arithmetic operations on String type values, such as subtraction, multiplication, or division, will usually end in an error. More precisely, the NaN value will be returned as a result of the action.
+A very convenient mechanism that was introduced to JavaScript in 2015 is string interpolation. It allows you to treat a character string as a template, in which you can place values in selected places, such as those taken from variables. Such a literal is created using backticks (or grave accents) instead of quotation marks. The places where values are inserted are marked with curly brackets preceded by a $ sign.
+
+let country = "Malawi";
+let continent = "Africa";
+   
+let sentence = ` ${country} is located in ${continent}.`;
+console.log(sentence); // -> Malawi is located in Africa.
+
+A method is a special kind of function that belongs to an object. Objects are complex data types, which can consist of many values (stored in properties) and methods.
+
+All data of primitive types such as Number, BigInt, Boolean, or String have corresponding objects to which they can be converted. Each of these objects will have methods designed for a specific data type. At this point, we come to another concept, that is, autoboxing. If a dot appears after a literal representing a primitive type, or after a variable containing this type of data, the JavaScript interpreter tries to treat this value as an object and not a primitive. For this purpose, it converts the primitive to the corresponding object on the fly, which has the appropriate methods (i.e. it performs autoboxing). 
+let river = "Mekong";
+let character = river.charAt(2);
+console.log(character); // -> k
+
+In the variable river, we store the primitive of a String type. In the next line, we refer to this variable, writing a dot after its name and the name of one of the methods – charAt (a method of the String class object). Although the primitive has no methods that can be called, the interpreter temporarily converts this value to a suitable object that already has such methods. One of these methods is charAt, which we now call. The method operates on a string originally placed in the river variable, and returns a single letter from the specified position (letters are counted starting from 0).
+After the operation is completed, the interpreter removes the temporary object. 
+
+Commonly used string methods and properties are: 
+-length: property, returns the number of characters in a string;
+-charAt(index): method, returns the character at the "index" position in the string (indexes start from 0);
+-slice(beginIndex, [optional] endIndex): method, returns a new string that is created from the characters between beginIndex (included) and endIndex (excluded); if endIndex is omitted, then the new string is from beginIndex to the end of the string;
+-split(separator, [optional] limit): method, splits the string into substrings whenever a separator is found in that string, and returns an array of those substrings (we will say a few words about arrays in a moment), while an optional limit limits the number of substrings added to the list.
+
+let str = "java script language";
+   
+console.log(str.length); // -> 20
+console.log('test'.length); // -> 4
+   
+console.log(str.charAt(0)); // -> 'j'
+console.log('abc'.charAt(1)); // -> 'b'
+   
+console.log(str.slice(0, 4)); // -> 'java'
+console.log('test'.slice(1, 3)); // -> 'es'
+   
+console.log(str.split(' ')); // -> ['java', 'script', 'language']
+console.log('192.168.1.1'.split('.')); // -> ['192', '168', '1', '1']
+
+Undefined- 
+The undefined type has only one value: undefined. It’s the default value that all variables have after a declaration if no value is assigned to them. You can also assign the value undefined to any variable, but in general, this should be avoided, because if we need to mark a variable as not holding any meaningful value, we should use null.
+
+Symbol 
+It’s a new primitive type that was added to JavaScript in 2015. It doesn't have any literal value, and can only be created using a special constructor function. Symbols are a form of identifier that are guaranteed to be unique.
+
+Null 
+It is quite specific- the value itself is primitive, while the type of which it belngs- its not primitive-> Number or undefined. 
+The null value is used to indicate that the variable does not contain anything, and most often it is a variable that is intended to contain values of complex types(such as objects).
+
+In a nutshell, we can assume that the undefined value is assigned to uninitialized variables automatically, but if we want to explicitly indicate that the variable does not contain anything, we assign it a null value. One important caveat for null is that when checked with the typeof operator, it will return "object", a surprising result. This is a part of a much more complicated object system, but for now, you just need to know that typeof null is equal to "object".
