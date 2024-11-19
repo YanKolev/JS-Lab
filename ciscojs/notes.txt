@@ -316,3 +316,241 @@ console.log(typeof str2); // -> number
 
 JavaScript will convert the rest of the arguments to a string as well. This is what is happening with str1 in the example. Subtraction with a string, however, doesn't make much sense, so in that case JavaScript converts everything to Numbers.
 
+Complex data types.[objects and arrays]
+
+Objects- have many applications in JS. One of them is record- record is a collection of named fields. Each filed has its own name (or key) and value assigned to it.
+in the case of JS objects - these fields are called properties. Records( or in our ase objects allow you to store multiple values of different types in once place.)
+easies way to create an object is to use curly bracket.
+let testObj = {};
+this is an empty object- it does not have any key-value pairs, we can define them below:
+
+let testObj = {
+  nr: 600, // nr(key): 600(value) => key-value pair
+  str:"text"
+};
+Key-value pairs are separated by commas. The specific property can be reffered with dot notation: 
+
+console.log(testObj.nr);// >600
+
+Why Objects are useful? We can store several values in one place, which are liked to each other for some reason. 
+
+let user1 = {
+    name: "Calvin",
+    surname: "Hart",
+    age: 66,
+    email: "CalvinMHart@teleworm.us"
+};
+
+let user2 = {
+    name: "Mateus",
+    surname: "Pinto",
+    age: 21,
+    email: "MateusPinto@dayrep.com"
+};
+
+We can both read and modify the value associated with a particular key. What is more, we can also modify the whole object by adding a new, previously non-existent property.
+ We also do this using dot notation – if during an attempt to modify the property the interpreter does not find the key we specify, it will create it.
+
+
+console.log(user1.name); // -> Calvin
+console.log(user2.name); // -> Mateus
+   
+console.log(user1.age); // -> 66
+user1.age = 67;
+console.log(user1.age); // -> 67
+   
+console.log(user2.phone); // -> undefined
+user2.phone = "904-399-7557";
+console.log(user2.phone); // -> 904-399-7557
+
+You can also delete the newly added information: 
+
+console.log(user2.phone); // -> 904-399-7557
+delete user2.phone;
+console.log(user2.phone); // -> undefined
+
+
+////////////////////////////////////////////////////////
+
+Array: 
+An array is like and object- complex data type that can be used to store a data collection- the stored
+data type can be of any type-(similar to object) The difference between these structures is that in array we only store values,
+without the associated names (i.e the keys).
+
+The values inside an array are index based. JS arrays start from 0.
+Easiest way to create arrays in JS is to use square brackets-array literal- used for creating empty arrays and arrays containing initial elements.
+reffering to a partiular element-> by using bracket notation
+
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+console.log(days[0]); // -> Sun
+console.log(days[2]); // -> Tue
+console.log(days[5]); // -> Fri
+   
+days[0] = "Sunday";
+console.log(days[0]); // -> Sunday
+   
+let emptyArray = [];
+console.log(emptyArray[0]); // -> undefined
+
+How can we add a new element to an existing array, for example, an empty one?
+
+The easiest way would be to assign a new value to a specific position using bracket notation.
+ For the interpreter, it doesn't matter if there is already something in this index or not. 
+ It just places a new value in there. What's interesting is that we don't have to fill the array with elements one by one – you can leave empty spaces in it.
+
+ let animals = [];
+console.log(animals[0]); // -> undefined
+   
+animals[0] = "dog";
+animals[2] = "cat";
+   
+console.log(animals[0]); // -> dog
+console.log(animals[1]); // -> undefined
+console.log(animals[2]); // -> cat
+
+we store the same type of data in one array, but as we mentioned earlier, this is not required by JavaScript. So we can easily create an array containing elements of different types.
+
+
+let values = ["Test", 7, 12.3, false];
+
+
+What is interesting is the fact that we can also store arrays as elements of the array, and we can access the elements of this nested array using multiple square brackets.
+
+let names = [["Olivia", "Emma", "Mia", "Sofia"], ["William", "James", "Daniel"]];
+console.log(names[0]); // -> ["Olivia", "Emma", "Mia", "Sofia"]
+console.log(names[0][1]); // -> Emma
+console.log(names[1][1]); // -> James
+   
+let femaleNames = names[0];
+console.log(femaleNames[0]); // -> Olivia
+console.log(femaleNames[2]); // -> Mia
+
+we can add new elements to an array while the program is running.
+
+in JavaScript, everything except primitives is an object. Arrays are also treated as a special kind of object. 
+The typeof operator does not distinguish between object types (or more precisely, classes), so it informs us that the days variable contains an object. 
+If we would like to make sure that the variable contains an array, we can do it using the instanceof operator, among others.
+
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let day = "Sunday";
+   
+console.log(typeof days); // -> object
+console.log(typeof day); // -> string
+   
+console.log(days instanceof Array); // -> true
+console.log(day instanceof Array); // -> false
+
+
+///////////////////////////////
+Array methods:
+
+Length
+The length property is used to get information about the length (the number of elements) of the array (including empty positions between existing elements).
+
+let names = ["Olivia", "Emma", "Mateo", "Samuel"];
+console.log(names.length); // -> 4
+
+IndexOf
+The indexOf method is used to search the array to locate a given value. If the value is found (the element is in the array), its index (position) will be returned. 
+The method returns -1 if the element is not found. If there is more than one element with the same value in the array, the index of the first element is returned.
+
+let names = ["Olivia", "Emma", "Mateo", "Samuel"];
+console.log(names.indexOf("Mateo")); // -> 2
+console.log(names.indexOf("Victor")); // -> -1
+
+
+Push
+The push method places the element given as its argument at the end of the array. The length of the array is increased by 1, and the new element is inserted on the right (it has the largest index of all elements).
+et names = ["Olivia", "Emma", "Mateo", "Samuel"];
+console.log(names.length); // -> 4
+   
+names.push("Amelia");
+console.log(names.length); // -> 5
+console.log(names); // - > ["Olivia", "Emma", "Mateo",
+"Samuel", "Amelia"]
+
+
+Unshift
+The unshift method works similarly to push, the difference being that a new element is added to the beginning of the array. The array length is increased by 1, all the old elements are moved to the right and the new element is placed in the empty space that has been created at the beginning of the array. The index of the new element is 0.
+
+let names = ["Olivia", "Emma", "Mateo", "Samuel"];
+console.log(names.indexOf("Mateo")); // -> 2
+console.log(names.indexOf("Victor")); // -> -1
+
+
+Pop
+The pop method allows you to remove the last element from the array. As a result of its execution, the element with the largest index is returned, while at the same time it is removed from the original array. The length of the array is obviously reduced by 1.
+
+let names= ["Olivia", "Emma", "Mateo", "Samuel"];
+console.log(names.length); // -> 4
+   
+let name = names.pop();
+console.log(names.length); // -> 3
+console.log(name); // -> Samuel
+console.log(names); // -> ["Olivia", "Emma", "Mateo"]
+
+
+Shift
+The shift method works similarly to pop, only this time we remove the element from the beginning of the array (with the index 0). The removed element is returned by the method, all other elements are shifted to the left, completing the empty space. The length of the original array is reduced by 1.
+
+
+let names = ["Olivia", "Emma", "Mateo", "Samuel"];
+console.log(names.length); // -> 4
+   
+let name = names.shift();
+console.log(names.length); // -> 3
+console.log(name); // -> Olivia
+console.log(names); // -> ["Emma", "Mateo", "Samuel"]
+
+Reverse
+The reverse method reverses the order of elements in the array. As a result of its calling, the first element of the original array will become the last, the second last but one, and so on.
+
+let names = ["Olivia", "Emma", "Mateo", "Samuel"];
+   
+names.reverse();
+console.log(names); // -> ["Samuel", "Mateo", "Emma",
+   "Olivia"]
+  
+
+Slice
+The slice method allows you to create a new array from selected elements of the original array. Calling the method does not affect the original array. The method takes either one or two integer values as arguments.
+
+The basic combinations are:
+
+one argument larger than zero – all elements from the index given as an argument to the end of the array are copied;
+two arguments larger than zero – the element from the index specified as the first argument to the element specified as the second argument are copied;
+two arguments, first positive, second negative – all elements from the specified index to the end of the array are copied, except for the specified number of the last elements (e.g. argument -3 means that we do not copy the last three elements)
+one negative argument – the specified number of the last elements are copied to the end of the array (e.g. -2 means that you copy the last two elements).
+
+let names = ["Olivia", "Emma", "Mateo", "Samuel"];
+   
+let n1 = names.slice(2);
+console.log(n1); // -> ["Mateo", "Samuel"]
+   
+let n2 = names.slice(1,3);
+console.log(n2); // -> ["Emma", "Mateo"]
+   
+let n3 = names.slice(0, -1);
+console.log(n3); // -> ["Olivia", "Emma", "Mateo"]
+   
+let n4 = names.slice(-1);
+console.log(n4); // -> ["Samuel"]
+   
+console.log(names); // -> ["Olivia", "Emma", "Mateo",
+   "Samuel"]
+
+
+Concat
+The concat method creates a new array by attaching elements from the array given as an argument to the original array elements. The method changes neither the original array nor the array specified as an argument.
+
+let names = ["Olivia", "Emma", "Mateo", "Samuel"];
+let otherNames = ["William", "Jane"];
+let allNames = names.concat( otherNames);
+   
+console.log(names); // -> ["Olivia", "Emma", "Mateo",
+   "Samuel"]
+console.log(otherNames); // -> ["William", "Jane"]
+console.log(allNames); // -> ["Olivia", "Emma", "Mateo",
+   "Samuel", "William", "Jane"]
+
+   
