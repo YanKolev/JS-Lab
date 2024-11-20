@@ -316,6 +316,9 @@ console.log(typeof str2); // -> number
 
 JavaScript will convert the rest of the arguments to a string as well. This is what is happening with str1 in the example. Subtraction with a string, however, doesn't make much sense, so in that case JavaScript converts everything to Numbers.
 
+/////////////////////////////////////////////////////////////
+
+
 Complex data types.[objects and arrays]
 
 Objects- have many applications in JS. One of them is record- record is a collection of named fields. Each filed has its own name (or key) and value assigned to it.
@@ -491,7 +494,8 @@ console.log(names); // -> ["Olivia", "Emma", "Mateo"]
 
 
 Shift
-The shift method works similarly to pop, only this time we remove the element from the beginning of the array (with the index 0). The removed element is returned by the method, all other elements are shifted to the left, completing the empty space. The length of the original array is reduced by 1.
+The shift method works similarly to pop, only this time we remove the element from the beginning of the array (with the index 0). 
+The removed element is returned by the method, all other elements are shifted to the left, completing the empty space. The length of the original array is reduced by 1.
 
 
 let names = ["Olivia", "Emma", "Mateo", "Samuel"];
@@ -513,7 +517,8 @@ console.log(names); // -> ["Samuel", "Mateo", "Emma",
   
 
 Slice
-The slice method allows you to create a new array from selected elements of the original array. Calling the method does not affect the original array. The method takes either one or two integer values as arguments.
+The slice method allows you to create a new array from selected elements of the original array. 
+Calling the method does not affect the original array. The method takes either one or two integer values as arguments.
 
 The basic combinations are:
 
