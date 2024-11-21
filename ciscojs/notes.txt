@@ -558,4 +558,136 @@ console.log(otherNames); // -> ["William", "Jane"]
 console.log(allNames); // -> ["Olivia", "Emma", "Mateo",
    "Samuel", "William", "Jane"]
 
-   
+
+/////////////////////////////////////////////////////////////////////////////////
+Assignment, arithmetic and locical operators
+////////////////////////////////////////////////////////////////////////////////
+
+
+Operators-
+Operators in programming languages are symbols(sometims also names) that are used to perform certain actions on arguments and operands.
+
+Operands can be both alues and variables.There are couple of types of operators-> 
+Distinguished, for example by the number of operands they work on. 
++ the addition operator is typical binary operator(it uses two operands) while typeof is unary(uses only one operand)
+There is also the ternary perator(operating on three operands).
+
+There are 3 big cathegories: 
+-prefix operators(occuring before the operand)
+-postfix operators(afer the operand)
+-infix operators(between operands)
+
+Its more common to cathegorize those operators according to the context in which they are used: 
+assignment, arithmetic, logical or conditional operators.
+
+Assignment operators-> operators wich allow for the assigning of values to varibles and constants(=)
+Arithmetic operators-> accept, both numerical values and variables. All numeric operators, except addition will try
+to implicitly convert values to the Number type before performing the operation.
+-The addition operator will convert everything to a string if any of the operands is a string type, otherwise it will convert them 
+into a number like the rest of the arithmetic operators. 
+
+Unary arithmetic operators- ("+" and "-")- both operators convert operand to the Number type, while the minus operator addtionally negates it.
+Unary increment(++) and decrement(--) operators- work in both prefix and postfix versions. Allow us to to increase/decrease the value of the operant by 1.
+postfix- version: perform the operation by changing the value of the variable, BUT returns the value BEFORE THE CHANGE.
+prefix-version: performs the operation and returns the new value.
+
+let n1 = 10;
+let n2 = 10;
+
+console.log(n1); // -> 10
+console.log(n1++); // -> 10
+console.log(n1); // -> 11
+
+console.log(n2); // -> 10
+console.log(++n2); // -> 11
+console.log(n2); // -> 11
+
+Compound Assignment Operators: 
+Binary arithmetic operatos can be combined with the assignment operator, resulting in 
+addition assignment (+=)
+substraction assignment (-=)
+multiplication assignment (*=)
+division assignment (/=)
+remainder assignment (%=)
+power assignment (**=)
+
+Logical operators:
+They work with Boolean type values( true/false)
+-a conjuction- logical AND (&& symbol)
+-an alternative- logical OR ( ||symbol)
+-a negation- logical NOT (! symbol)
+
+&& operator- Returns TRUE if BOTH operands are true.
+
+console.log(true && true); // -> true
+console.log(true && false); // -> false
+console.log(false && true); // -> false
+console.log(false && false); // -> false
+
+
+|| operator- its enough for one of the operands to be TRUE and the operator will return TRUE;
+console.log(true || true); // -> true
+console.log(true || false); // -> true
+console.log(false || true); // -> true
+console.log(false || false); // -> false
+
+! operator- unary, changes the logical value of the operand to the its opposite
+console.log(!true); // -> false
+console.log(!false); // -> true
+
+We can, of course, connect as many of these operators as we need, creating more complex "sentences". As in the case of arithmetic operators, the sequence of actions is determined here. The highest priority is negation !, then conjunction &&, and finally the alternative ||. The precedence can of course be changed by means of parentheses.
+const a = false;
+const b = true;
+const c = false;
+const d = true;
+console.log(a && b && c || d); // -> true
+console.log(a && b && (c || d)); // -> false
+
+Logical operators and non-Boolean values;
+
+This is slightly different for binary logical operators (i.e. AND and OR). 
+They don't return a Boolean value. In reality, they return its first or second operand. 
+The AND operator will return the first operand if it evaluates to false, and the second operand otherwise. 
+The OR operator will return its first operand if it evaluates to true, and the second operand otherwise. 
+
+console.log(true && 1991); // -> 1991
+console.log(false && 1991); // -> false
+console.log(2 && 5); // -> 5
+console.log(0 && 5); // -> 0
+console.log("Alice" && "Bob"); // -> Bob
+console.log("" && "Bob"); // -> empty string
+console.log(true || 1991); // -> true
+console.log(false || 1991); // -> 1991
+console.log(2 || 5); // -> 2
+console.log(0 || 5); // -> 5
+console.log("Alice" || "Bob"); // -> Alice
+console.log("" || "Bob"); // -> Bob
+
+Both operators also use short-circuit evaluation.
+
+So, if the first operand of AND is false, it will be returned, and no other check will be performed.
+
+Conversely, if the first operand of OR is true, it will be returned, and no other check will be made. This quickens code execution, but has one side effect visible in this example:
+et x = 0;
+let y = 0;
+console.log(x++ && y++); // -> 0
+console.log(x); // -> 1
+console.log(y); // -> y == 0
+
+Compound Assignment Operators: 
+
+Just like arithmetic operators, binary logical operators can be used in combination with the assignment operator, creating a logical ADN assignment &&= and a logical OR assignment ||=.
+let a = true;
+console.log(a); // -> true
+a &&= false;
+console.log(a); // -> false
+
+The instruction a &&= false means exactly the same as a = a && false.
+
+let b = false;
+console.log(b); // -> false
+b ||= true;
+console.log(b); // -> true
+the operation b ||= true is interpreted as b = b || true.
+
+
