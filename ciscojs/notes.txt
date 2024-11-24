@@ -751,4 +751,55 @@ console.log("10" != "10"); // -> false
 console.log("Alice" != "Bob"); // -> true
 console.log(0 != false); // -> false
 console.log(undefined != false); // -> true
-console.log(NaN != NaN); // -> true
+console.log(NaN != NaN); // -> True
+
+Other Operators
+
+typeof- unary operator which cheks the type of operant(it can be variable or literal).
+The operator returns  a string wiwht the type name, such as boolean or number. 
+let year = 10191;
+console.log(typeof year); // -> number
+console.log(typeof false); // -> boolean
+
+instaceof- binary operator that checks whether an object (left operand) is some type (right operand).
+Depending on the result it returns true or false. 
+
+let names = ["Patti", "Bob"];
+let name = names[0];
+console.log(names instanceof Array); // -> true
+console.log(name instanceof Array); // -> false
+
+delete- unary operator,  it allows you to delete a selected field of the object whose name is indicated
+
+let user = {
+     name: "Alice",
+     age: 38
+};
+console.log(user.age); // -> 38
+delete user.age;
+console.log(user.age); // -> undefined
+
+ternary- operator using three operands. It is a conditional operator. 
+Based on the value of the first operand (true or false), the value of the second or third operand, respectively, is returned. This operator is most often used to place one of the two values in the variable depending on a certain condition
+
+console.log(true ? "Alice" : "Bob"); // -> Alice
+console.log(false ? "Alice" : "Bob"); // -> Bob
+
+Each of these operands can be an expression that must be calculated. In the following example, the first operand is a comparison of two numbers using a comparison operator. The result of the comparison will be false, which will be used by the conditional (ternary) operator. Here we come to an important problem about operator precedence and order of execution
+
+let name = 1 > 2 ? "Alice" : "Bob";
+console.log(name); // -> Bob
+
+Precedence: 
+
+let a = 10;
+let b = a + 2 * 3;
+let c = a + 2 < 20 - 15;
+console.log(a); // -> 10
+console.log(b); // -> 16
+console.log(c); // -> false
+
+In the second line of the example (variable b declaration), the operators are executed in the order we know from mathematics. First, multiplication is performed, then addition, and at the end the resulting value is assigned to the variable. In the third line (declaration of variable c) the matter gets a little more complicated. First, the sum of variable a and number 2 is calculated, then the sum of numbers 20 and 15, and both results are compared with the logical operator (less than) and the result is placed in variable c.
+
+The JavaScript interpreter uses two operator properties to determine the sequence of operations: precedence and associativity. Precedence can be treated as a priority, with some operators having the same precedence (e.g. addition and subtraction). Associativity allows you to specify the order of execution if there are several operators with the same priorities next to each other.
+
