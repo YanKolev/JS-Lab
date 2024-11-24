@@ -244,3 +244,63 @@ books.push({
 // summer = ['June', 'July', 'August'];
 // summer.reverse();
 // console.log(summer);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Exercise: Using everything you’ve learned up until this point,
+// write a script that asks a user about the width, height, and length of a box, then calculate and return to the user the volume of this box.
+
+// As an example, a box with width = 20, height = 10, and length = 50 will have a volume of 10000 (omitting units, as they are not relevant in this scenario).
+// For now, assume that the values provided by the user are valid numbers,
+// but if you have any ideas on how, you can try to make this script in such a way that it will be resistant to invalid values.
+
+// let name1 = window.prompt('What is your name?', 'John Doe');
+// name1 = name1 ? name1 : 'anonymous';
+// let age = prompt('Hello ' + name1 + ' how old are you?');
+// alert(name1 + ' is ' + age + ' years old');
+
+// let boxW = window.prompt(
+//   'Lets calculate this box together!',
+//   'Place initial width number'
+// );
+// boxW = boxW ? boxW : 'NaN';
+
+// let boxH = window.promt(
+//   'We got the width, tell us now the height',
+//   'Place initial height number'
+// );
+// boxH = boxH ? boxH : 'NaN';
+// let boxL = window.prompt(
+//   'Great job, now we need only the length',
+//   'Place initial length number'
+// );
+// boxL = boxL ? boxL : 'NaN';
+
+// let boxTotal = Number(Number(boxW) * Number(boxH) * Number(boxL));
+
+// alert(`The box's volue is: ${boxTotal}`);
+
+// alert(`The box volume is`, Number(boxW * boxH * boxL));
+
+// console.log(boxL);
+// let totalV = boxW * boxH * boxL;
+// console.log(totalV);
+// alert(`Total Volume is  ${totalV}`);
+
+// let contactName = window.prompt('Contact name you want to add', 'John Doe');
+// contactName = contactName ? contactName : 'anonymous';
+// let contactPhone = window.prompt('Contact phone you want to add ', '080001112');
+// contactPhone = contactPhone ? contactPhone : 'Not a number';
+// let contactEmail = window.prompt(
+//   'Contact email you want to add',
+//   'example@example.com'
+// );
+// contactEmail = contactEmail ? contactEmail : 'Invalid email';
+
+// contacts.push(
+//   `{name: ${contactName}, phone: ${contactPhone}, email: ${contactEmail}}`
+// );
+
+// let n = false || 'false';
+
+// console.log(n);
