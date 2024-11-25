@@ -834,4 +834,173 @@ As with other dialog boxes, the prompt accepts an optional parameter as a messag
 The prompt also accepts a second optional parameter, which is the default value of the text field visible in the dialog window. 
 The same as confirm, the prompt method will return a result that is dependent on user input.
 
+/////////////////////////////////////////////////////////////////
+Control flow - Conditional Execution and Loops
+/////////////////////////////////////////////////////////////////
 
+Conditional statements
+-If statement- it checks a given condition and depending on its Boolean value, it executes block of code or skips it.
+
+if (condition) {
+    block of code
+}
+
+Using the if instruction and closing the selected instructions in the block (using curly brackets), we can cause them to be executed only when certain circumstances occur (i.e. the condition we’ve invented is fulfilled). Remember that variables and constants declared using let and const inside a block are local, that is, their scope is limited to that particular block.
+
+let userAge = 23;
+let isFemale = false;
+let points = 703;
+let cartValue = 299;
+let shippingCost = 9.99;
+if (userAge > 21) {
+    if (cartValue >= 300 || points >= 500) {
+     shippingCost = 0;
+    }
+}
+console.log(shippingCost);
+
+can be reworked with if statement and the use of logical AND operator:
+
+if (userAge > 21 && (cartValue >= 300 || points >= 500)) {
+    shippingCost = 0;
+}
+
+Here the condition will be evaluated to true when:
+
+userAge is greater than 21 AND;
+cartValue is greater than or equal to 300 OR points is greater than or equal to 500.
+So, we need to have the first condition met, and at least one from the second or third conditions.
+
+-If ...else statement 
+
+The else keyword is an optional part of the if statement, and it allows us to add a second code block that will be executed only when the initial condition is NOT met. Both blocks of code are separated using the else keyword.
+
+if (condition) {
+condition - true code
+} else {
+condition - false code
+}
+
+Example : 
+let isUserReady = confirm("Are you ready?");
+if (isUserReady) {
+    console.log("User ready!");
+} else {
+    console.log("User not ready!");
+}
+
+- IF.... else .... if statement 
+
+Both if and if … else statements give us great flexibility in how code can behave in relation to anything else. But branching the code execution flow only to two branches is sometimes not enough. There’s a simple solution to this in JavaScript – we can nest if ... else statements. How does this work? An else segment can have an if or if … else statement inside it, and it’s possible to nest any number of if … else statements in this way if needed.
+
+The syntax for this looks like this:
+
+const INSURANCE_COST = 2.99;
+
+let shippingCost = 9.99;
+let isOrderValid = true;
+
+let userAge = 22;
+let points = 400;
+let cartValue = 199;
+let hasPromoCode = false;
+let hasParentsApproval = false;
+let addInsurance = true;
+
+/** calculate shipping cost*/
+if ((userAge > 65) || (userAge >= 21 && (hasPromoCode || cartValue > 300 || points > 500))) {
+shippingCost = 0;
+} else if (userAge < 21 && hasParentsApproval) {
+shippingCost = shippingCost - 5;
+} else if (userAge < 21) {
+isOrderValid = false;
+}
+
+/** take account of insurance */
+if (isOrderValid && addInsurance && !hasPromoCode) {
+shippingCost += INSURANCE_COST;
+}
+
+/** show message */
+if (isOrderValid) {
+console.log(shippingCost);
+} else {
+console.log("Cannot order if under 21");
+}
+
+To summarize what’s going on, we can dissect each case separately:
+
+if userAge is less than 21 and hasParentsApproval is false, the order is invalid;
+If userAge is less than 21 but hasParentsApproval is set to true, the shippingCost will be reduced by 5;
+If userAge is 65 or higher, shippingCost is reduced to zero;
+If userAge is lower than 65, but higher than or equal to 21 AND one of the following:
+- hasParentsApproval is equal to true;
+- cartValue is greater than 300;
+- points is greater than 500;
+the shippingCost is reduced to zero.
+In any other case, the cost remains at the default value.
+
+After all of this, we do another check:
+
+if addInsurance is set to true;
+AND in addition orderIsValid;
+AND hasPromoCode is not true, then we add INSURANCE_COST to the shippingValue.
+In the end, we display the shippingCost if the order is valid, and the message if it is not.
+
+When using if else block, you can implement terary operator: 
+as an alternative to the if ... else instruction when you want to assign one of two values to a variable, depending on a certain condition.
+
+Original if...else block
+
+let price = 100;
+let shippingCost;
+if (price > 50) {
+    shippingCost = 0;
+} else {
+    shippingCost = 5;
+}
+console.log(`price = ${price}, shipping = ${shippingCost}`); // -> price = 100, shipping = 0
+
+
+ternary variation: 
+ the first operand (before the question mark) is the condition to verify, the second operand (between the question mark and the colon) will be returned if the condition is true, and the third operand (after the colon) if the condition is false.
+
+ let price = 100;
+let shippingCost = price > 50 ? 0 : 5;
+console.log(`price = ${price}, shipping = ${shippingCost}`); // -> price = 100, shipping = 0
+
+
+-Switch case statement: 
+ It’s somewhat similar to nested if … else statements, but instead of evaluating different expressions, switch evaluates one conditional expression and then tries to match its value to one of the given cases.
+
+ switch (expression) {
+    case first_match:
+     code
+     break;
+    case second_match:
+     code
+     break;
+    default:
+     code
+}
+
+
+let gate = prompt("Choose gate: a, b or c ");
+let win = false;
+switch (gate) {
+   case "a";
+   alert(Gate A: empty")
+   break;
+   case "b":
+   alert("Gate B: main prize");
+   win = true;
+   break;
+   case "c":
+   alert("Gate C: empty");
+   break;
+   default:
+   alert("No gate " + String(gate));
+}
+if (win) {
+   alert("Winner!");
+}
