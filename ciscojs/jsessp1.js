@@ -313,8 +313,92 @@ books.push({
 
 // Display the message "Bingo!" when the number is greater than 90 but less than 110, otherwise display the message: "Miss". Use the if statement.
 
+// let guess = prompt('Guess the number', '55');
+// guess = guess ? guess : 'NaN';
+
+if (guess > 90 && guess < 100) {
+  alert('Bingo!');
+} else {
+  alert('Miss');
+}
+
 // Exercise 2: Rewrite the code from the previous task, replacing if with a ternary conditional operator.
+let guess = prompt('Guess the number', '55');
+guess = guess ? guess : 'NaN';
+alert(guess > 90 && guess < 100 ? 'Bingo' : 'Miss');
 
-// Exercise 3: Write a simple calculator application. Ask the user for the following input, one by one: two numbers and a character representing a mathematical operation, one of "+", "-", "*", "/". If the user input is valid, calculate the result and show it to the user. If the user input is invalid, display a message that informs the user that an error has occurred.
+// Exercise 3: Write a simple calculator application.
+//Ask the user for the following input, one by one: two numbers and a character representing a mathematical operation,
+//one of "+", "-", "*", "/". If the user input is valid, calculate the result and show it to the user.
+//If the user input is invalid, display a message that informs the user that an error has occurred.
 
-// Remember that the value returned by the prompt function is of the type string. You can use the Number.isNaN method to check if you get the correct number after conversion. For example, calling Number.isNaN(10) will return false, while Number.isNaN(NaN) will return true.
+// Remember that the value returned by the prompt function is of the type string. You can use the Number.isNaN method to check if you get the correct number after conversion.
+//For example, calling Number.isNaN(10) will return false, while Number.isNaN(NaN) will return true.
+let a = prompt('First number to calculate', '1');
+a = a ? a : 'NaN';
+let aNum = Number(a);
+
+let action = prompt('Select action', '+", "-", "*", "/'); //only this is useful from the get-go
+action = action ? action : 'invalid action';
+
+let b = prompt('Second number to calculate', '2');
+b = b ? b : 'NaN';
+let bNum = Number(b);
+
+// const actions = ['+', '-', '*', '/']; NO NEED FOR THIS ARRAY
+let result;
+// PAY ATTENTION TO THE TASK TEXT!!! USE THE Number.isNaN(NaN) AND ADJUST IT
+if (!Number.isNaN(aNum) && !Number.isNaN(bNum)) {
+  // only if u add here anum and bnum works as intended
+  switch (action) {
+    case '+':
+      result = a + b;
+      break;
+    case '-':
+      result = a - b;
+      break;
+    case '*':
+      result = a * b;
+      break;
+    case '/':
+      result = a / b;
+      break;
+    default:
+      result = 'Error: unknown action';
+  }
+} else {
+  result = 'Error:at least one o the entered values is not a number';
+}
+alert(result);
+
+// In this way it will covert even letters and words and add them together to produce a result
+//Works if u mess up the action, but the if+ switch part was from the solution
+
+//Course answer- more comprehensive.
+
+let firstNumber = Number(prompt('Enter first number')); //immediately transforms the prompt to number
+let secondNumber = Number(prompt('Enter second number'));
+let operand = prompt('Enter operand (+, -, * or /)');
+let resultz;
+
+if (!Number.isNaN(firstNumber) && !Number.isNaN(secondNumber)) {
+  switch (operand) {
+    case '+':
+      result = firstNumber + secondNumber;
+      break;
+    case '-':
+      result = firstNumber - secondNumber;
+      break;
+    case '*':
+      result = firstNumber * secondNumber;
+      break;
+    case '/':
+      result = firstNumber / secondNumber;
+      break;
+    default:
+      result = 'Error: unknown operand';
+  }
+} else {
+  resultz = 'Error: at least one of the entered values is not a number';
+}
+alert(resultz);

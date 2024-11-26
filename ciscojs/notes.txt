@@ -780,12 +780,16 @@ delete user.age;
 console.log(user.age); // -> undefined
 
 ternary- operator using three operands. It is a conditional operator. 
-Based on the value of the first operand (true or false), the value of the second or third operand, respectively, is returned. This operator is most often used to place one of the two values in the variable depending on a certain condition
+Based on the value of the first operand (true or false), the value of the second or third operand, respectively, is returned.
+ This operator is most often used to place one of the two values in the variable depending on a certain condition
 
 console.log(true ? "Alice" : "Bob"); // -> Alice
 console.log(false ? "Alice" : "Bob"); // -> Bob
 
-Each of these operands can be an expression that must be calculated. In the following example, the first operand is a comparison of two numbers using a comparison operator. The result of the comparison will be false, which will be used by the conditional (ternary) operator. Here we come to an important problem about operator precedence and order of execution
+Each of these operands can be an expression that must be calculated. 
+In the following example, the first operand is a comparison of two numbers using a comparison operator. 
+The result of the comparison will be false, which will be used by the conditional (ternary) operator. 
+Here we come to an important problem about operator precedence and order of execution
 
 let name = 1 > 2 ? "Alice" : "Bob";
 console.log(name); // -> Bob
@@ -963,7 +967,9 @@ console.log(`price = ${price}, shipping = ${shippingCost}`); // -> price = 100, 
 
 
 ternary variation: 
- the first operand (before the question mark) is the condition to verify, the second operand (between the question mark and the colon) will be returned if the condition is true, and the third operand (after the colon) if the condition is false.
+ the first operand (before the question mark) is the condition to verify, 
+ the second operand (between the question mark and the colon) will be returned if the condition is true,
+  and the third operand (after the colon) if the condition is false.
 
  let price = 100;
 let shippingCost = price > 50 ? 0 : 5;
@@ -971,7 +977,8 @@ console.log(`price = ${price}, shipping = ${shippingCost}`); // -> price = 100, 
 
 
 -Switch case statement: 
- It’s somewhat similar to nested if … else statements, but instead of evaluating different expressions, switch evaluates one conditional expression and then tries to match its value to one of the given cases.
+ It’s somewhat similar to nested if … else statements, but instead of evaluating different expressions, 
+ switch evaluates one conditional expression and then tries to match its value to one of the given cases.
 
  switch (expression) {
     case first_match:
