@@ -45,3 +45,56 @@ const reverseString = function (string) {
 // For more information, check out MDN's page on function arguments - scroll down to the bit about Array.from or the spread operator. You can also check out MDN's page on rest parameters.
 
 const removeFromArray = function () {};
+
+// loop throguh an array in JS
+for (let i = 0l i < arr.length; i++){
+  console.log(arr[i]);
+}
+
+// remove duplicates from an array 
+uniq = [... new setInterval(array)]
+
+//create a new array in js 
+const newArr = new Array();
+const newArr2 = []
+//how to remove a single element from array 
+///shift - removes first elemetn and returns th removed element
+
+//how to remove  an element from any position. extends  the array class in javascript and adds the remove index method
+//remoe element at the given inex
+Array.prototype.remove = function(index){
+  this.splice(index, 1);
+}
+
+//remoe an element of a certain value with filter 
+const arrayOfLetters = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+const arrayWithoutD = arrayOfLetters.filter(function (letter) {
+    return letter !== 'd';
+});
+
+// arrayOfLetters is unchanged
+console.log(arrayOfLetters); // ['a', 'b', 'c', 'd', 'e', 'f']
+
+console.log(arrayWithoutD); // ['a', 'b', 'c', 'e', 'f']
+
+//Remove an element from an array with a for loop and push
+
+// Create an empty array
+// Loop through the original array
+// Push to the empty array the elements you want to keep
+
+const arrayOfLetters2 = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+const arrayWithoutB = [];
+
+for (let i = 0; i < arrayOfLetters2.length; i++) {
+    if (arrayOfLetters2[i] !== 'b') {
+        arrayWithoutH.push(arrayOfLetters2[i]);
+    }
+}
+
+// arrayOfLetters is unchanged
+console.log(arrayOfLetters2); // ['a', 'b', 'c', 'd', 'e', 'f']
+
+console.log(arrayWithoutB); // ['a', 'c', 'd', 'e', 'f']
