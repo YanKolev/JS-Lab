@@ -107,3 +107,19 @@ const removeFromArray = function (arr, ...args) {
 // console.log(arrayOfLetters2); // ['a', 'b', 'c', 'd', 'e', 'f']
 
 // console.log(arrayWithoutB); // ['a', 'c', 'd', 'e', 'f']
+
+/////////////////////////////////////////////////////////////
+//Exercise 05 - sumAll
+//////////////////////////////////////////////////////////////
+
+//Implement a function that takes 2 positive integers and returns the sum of every integer between (and including) them:
+
+sumAll(1, 4); // returns the sum of 1 + 2 + 3 + 4 which is 10
+
+// make sure you pay attention to the function parameters
+// create a variable to hold the final sum
+// loop through the given numbers (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+// on each iteration add the number to the sum
+// return the sum after finishing the loop
+
+const sumAll = function () {};
