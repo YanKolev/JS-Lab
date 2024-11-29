@@ -122,4 +122,17 @@ sumAll(1, 4); // returns the sum of 1 + 2 + 3 + 4 which is 10
 // on each iteration add the number to the sum
 // return the sum after finishing the loop
 
-const sumAll = function () {};
+const sumAll = function (a, b) {
+  let sum = 0;
+
+  for (let i = a; i <= b; i++) {
+    sum += i;
+  }
+  return sum;
+};
+
+//how to distinguish positive integers? if negative integer is put- break
+//variable to hold final sum-
+//lop through given numbers????
+// each iteration num+sum
+//returl finalsum
