@@ -131,8 +131,6 @@ const sumAll = function (a, b) {
   return sum;
 };
 
-//how to distinguish positive integers? if negative integer is put- break
-//variable to hold final sum-
-//lop through given numbers????
-// each iteration num+sum
-//returl finalsum
+// need to rework for different cases:
+// if first integer is bigger than second- maybe to revert it
+// float numbers, negative numbers, arrays, bigint - to throw error
