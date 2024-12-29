@@ -77,5 +77,13 @@ function howManydays(month) {
 // Finally, return the padded string.
 
 function padIt(str, n) {
-  //coding here
+  let padStr = '';
+  var num = 0;
+  while (10 >= num) {
+    padStr = String(str).padStart(n, '*');
+    num++;
+  }
+  return padStr;
 }
+
+padIt('a', 1);
