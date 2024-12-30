@@ -79,11 +79,31 @@ function howManydays(month) {
 function padIt(str, n) {
   let padStr = '';
   var num = 0;
-  while (10 >= num) {
-    padStr = String(str).padStart(n, '*');
+  while (n > num) {
+    padStart = String(str).padStart(n, '*');
+    padEnd = String(str).padEnd(n, '*');
+
     num++;
   }
   return padStr;
 }
 
 padIt('a', 1);
+
+// issues to address
+// Incorrect Condition in while Loop
+
+// The loop condition 10 >= num causes the loop to run 11 times, regardless of the input n. It doesn't depend on n, so it doesn't make sense in the context of the function.
+// If n is supposed to control how many times the loop executes, you should use num < n instead.
+// Unused Variables
+
+// padStart and padEnd are calculated inside the loop but are not used or returned. This makes them redundant.
+// padStr is Never Modified
+
+// The padStr variable is initialized but never updated, so it always returns an empty string.
+// Logic for Padding is Misaligned
+
+// If the goal is to add padding alternately to the start and end of str, the logic for appending * to str is missing.
+// Potential Scope Issue
+
+// The variables padStart and padEnd are defined without let or const, which could lead to unintended side effects due to their global scope.
