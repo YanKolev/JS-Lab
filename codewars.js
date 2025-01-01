@@ -83,6 +83,10 @@ function padIt(str, n) {
     padStart = String(str).padStart(n, '*');
     padEnd = String(str).padEnd(n, '*');
 
+    if (condition) {
+    } else {
+    }
+
     num++;
   }
   return padStr;
