@@ -78,15 +78,15 @@ function howManydays(month) {
 
 function padIt(str, n) {
   let padStr = '';
-  var num = 0;
-  while (n > num) {
-    padStart = String(str).padStart(n, '*');
-    padEnd = String(str).padEnd(n, '*');
-
-    if (condition) {
+  let num = 0;
+  // let evenStr = String(str).padStart(n, '*');
+  // let oddStr = String(str).padEnd(n, '*');
+  while (num < n) {
+    if (n % 2) {
+      return evenStr + oddStr;
     } else {
+      return oddStr;
     }
-
     num++;
   }
   return padStr;
@@ -111,3 +111,18 @@ padIt('a', 1);
 // Potential Scope Issue
 
 // The variables padStart and padEnd are defined without let or const, which could lead to unintended side effects due to their global scope.
+
+
+function padIt(str,n){
+  2 parameters: str= string, to be padded with * alternating-> left, right 
+  n= how many times to pad the string
+  
+  loops n times
+  each loop add * to the str
+  first loop *a
+  second loop *a*
+  third loop **a*
+  forth loop **a**
+  fifth loop ***a**
+  return padded str
+}
