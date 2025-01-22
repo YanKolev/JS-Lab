@@ -134,3 +134,50 @@ const sumAll = function (a, b) {
 // need to rework for different cases:
 // if first integer is bigger than second- maybe to revert it
 // float numbers, negative numbers, arrays, bigint - to throw error
+
+
+const sumAll = function (a, b) {
+  let sum = 0;
+  for (let i = a; i <= b; i++) {
+    sum += i;
+  }
+  return sum;
+};
+
+// Do not edit below this line
+module.exports = sumAll;
+
+//positive integers, throw error if its negative,
+//variable to hold the final sum
+//loop through the given numbers
+//for each iteration add the num + sum
+//return sum after finishing the loop
+// 2 passed, 5 failed ... .needs rework
+
+//  TESTS 
+// describe("sumAll", () => {
+//   test("sums numbers within the range", () => {
+//     expect(sumAll(1, 4)).toEqual(10);
+//   });
+//   test("works with large numbers", () => {
+//     expect(sumAll(1, 4000)).toEqual(8002000);
+//   });
+//   test("works with larger number first", () => {
+//     expect(sumAll(123, 1)).toEqual(7626);          NEED to accomodate for bigger number first. and or flip it??
+//   });
+//   test("returns ERROR with negative numbers", () => {
+//     expect(sumAll(-10, 4)).toEqual("ERROR");        IF A is - / negative number  Return "ERROR"
+//   });
+//   test("returns ERROR with non-integer parameters", () => {
+//     expect(sumAll(2.5, 4)).toEqual("ERROR");         IF A is not a number (IF ITS DECIMAL ) Return "ERROR"
+//   });
+//   test("returns ERROR with non-number parameters", () => {
+//     expect(sumAll(10, "90")).toEqual("ERROR");           IF A IS NOT A NUMBER (IF ITS A STRING) RETURN ERROR
+//   });
+//   test("returns ERROR with non-number parameters", () => {
+//     expect(sumAll(10, [90, 1])).toEqual("ERROR");             IF A /B IS NOT A NUMBER (IF ITS A  ARRAY) RETURN ERROR
+
+//   });
+// });
+
+need to make a fucntion that checks all of the requirements and throws an error, if its false to continue with the loop
