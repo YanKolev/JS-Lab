@@ -181,3 +181,100 @@ module.exports = sumAll;
 // });
 
 need to make a fucntion that checks all of the requirements and throws an error, if its false to continue with the loop
+
+const sumAll = function (a, b) {
+  // let sum = 0;
+  // for (let i = a; i <= b; i++) {
+  //   sum += i;
+  // }
+  // return sum;
+  if (a > b) {
+    // swapping variables with temp variable
+    let a = a;
+    let b = b;
+    let temp;
+
+    temp = a;
+    a = b;
+    b = temp;
+    //
+  } else if (0 > a || 0 > b) {
+    return "ERROR";
+  } else if (a % 1 === 0 || b % 1 === 0) {
+    return "ERROR";
+  } else if (typeof a === "string" || b === "string") {
+    return "ERROR";
+  } else if (Array.isArray(a) || Array.isArray(b)) {
+    return "ERROR";
+  } else {
+    let sum = 0;
+    for (let i = a; i <= b; i++) {
+      sum += i;
+    }
+    return sum;
+  }
+};
+
+
+
+
+ FAIL  05_sumAll/sumAll.spec.js (6.518 s)
+  sumAll
+    ✕ sums numbers within the range (7 ms)
+    ✕ works with large numbers (1 ms)
+    ✕ works with larger number first (1 ms)
+    ✓ returns ERROR with negative numbers (1 ms)
+    ✓ returns ERROR with non-integer parameters (1 ms)
+    ✓ returns ERROR with non-number parameters (1 ms)
+    ✓ returns ERROR with non-number parameters (1 ms)
+
+  ● sumAll › sums numbers within the range
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 10
+    Received: "ERROR"
+
+      3 | describe("sumAll", () => {
+      4 |   test("sums numbers within the range", () => {
+    > 5 |     expect(sumAll(1, 4)).toEqual(10);
+        |                          ^
+      6 |   });
+      7 |   test("works with large numbers", () => {
+      8 |     expect(sumAll(1, 4000)).toEqual(8002000);
+
+      at Object.toEqual (05_sumAll/sumAll.spec.js:5:26)
+
+  ● sumAll › works with large numbers
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 8002000
+    Received: "ERROR"
+
+       6 |   });
+       7 |   test("works with large numbers", () => {
+    >  8 |     expect(sumAll(1, 4000)).toEqual(8002000);
+         |                             ^
+       9 |   });
+      10 |   test("works with larger number first", () => {
+      11 |     expect(sumAll(123, 1)).toEqual(7626);
+
+      at Object.toEqual (05_sumAll/sumAll.spec.js:8:29)
+
+  ● sumAll › works with larger number first
+
+    ReferenceError: Cannot access 'a' before initialization
+
+       7 |   if (a > b) {
+       8 |     // swapping variables with temp variable
+    >  9 |     let a = a;
+         |             ^
+      10 |     let b = b;
+      11 |     let temp;
+      12 |
+
+      at a (05_sumAll/sumAll.js:9:13)
+      at Object.sumAll (05_sumAll/sumAll.spec.js:11:12)
+
+
