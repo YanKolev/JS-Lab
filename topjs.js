@@ -216,65 +216,30 @@ const sumAll = function (a, b) {
 };
 
 
+const sumAll = function (a, b) {
+  let sum = 0;
 
+  // Check if the inputs are valid (non-integer, negative, or non-numeric)
+  if (!Number.isInteger(a) || !Number.isInteger(b)) {
+    return "ERROR";
+  }
+  if (a < 0 || b < 0) {
+    return "ERROR";
+  }
+  if (typeof a !== "number" || typeof b !== "number") {
+    return "ERROR";
+  }
 
- FAIL  05_sumAll/sumAll.spec.js (6.518 s)
-  sumAll
-    ✕ sums numbers within the range (7 ms)
-    ✕ works with large numbers (1 ms)
-    ✕ works with larger number first (1 ms)
-    ✓ returns ERROR with negative numbers (1 ms)
-    ✓ returns ERROR with non-integer parameters (1 ms)
-    ✓ returns ERROR with non-number parameters (1 ms)
-    ✓ returns ERROR with non-number parameters (1 ms)
+  // Find the range to sum
+  const start = Math.min(a, b);
+  const end = Math.max(a, b);
 
-  ● sumAll › sums numbers within the range
+  // Calculate the sum
+  for (let i = start; i <= end; i++) {
+    sum += i;
+  }
 
-    expect(received).toEqual(expected) // deep equality
+  return sum;
+};
 
-    Expected: 10
-    Received: "ERROR"
-
-      3 | describe("sumAll", () => {
-      4 |   test("sums numbers within the range", () => {
-    > 5 |     expect(sumAll(1, 4)).toEqual(10);
-        |                          ^
-      6 |   });
-      7 |   test("works with large numbers", () => {
-      8 |     expect(sumAll(1, 4000)).toEqual(8002000);
-
-      at Object.toEqual (05_sumAll/sumAll.spec.js:5:26)
-
-  ● sumAll › works with large numbers
-
-    expect(received).toEqual(expected) // deep equality
-
-    Expected: 8002000
-    Received: "ERROR"
-
-       6 |   });
-       7 |   test("works with large numbers", () => {
-    >  8 |     expect(sumAll(1, 4000)).toEqual(8002000);
-         |                             ^
-       9 |   });
-      10 |   test("works with larger number first", () => {
-      11 |     expect(sumAll(123, 1)).toEqual(7626);
-
-      at Object.toEqual (05_sumAll/sumAll.spec.js:8:29)
-
-  ● sumAll › works with larger number first
-
-    ReferenceError: Cannot access 'a' before initialization
-
-       7 |   if (a > b) {
-       8 |     // swapping variables with temp variable
-    >  9 |     let a = a;
-         |             ^
-      10 |     let b = b;
-      11 |     let temp;
-      12 |
-
-      at a (05_sumAll/sumAll.js:9:13)
-      at Object.sumAll (05_sumAll/sumAll.spec.js:11:12)
-
-
+ 
