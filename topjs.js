@@ -5,27 +5,27 @@
 
 // Use loops to implement repeatString rather than using the builtin String.prototype.repeat which has the same behaviour.
 
-const repeatString = function (string, num) {
-  //since we need to repeat a string we will need to start with a variable that
-  //holds empty sting
+// const repeatString = function (string, num) {
+//   //since we need to repeat a string we will need to start with a variable that
+//   //holds empty sting
 
-  let repString = ''; // will store the final repeated string
+//   let repString = ''; // will store the final repeated string
 
-  if (num < 0) {
-    return 'ERROR';
-  }
+//   if (num < 0) {
+//     return 'ERROR';
+//   }
 
-  for (let i = 0; i < num; i++) {
-    repString += string;
-  }
+//   for (let i = 0; i < num; i++) {
+//     repString += string;
+//   }
 
-  return repString;
-};
+//   return repString;
+// };
 
-// reverse string function
-const reverseString = function (string) {
-  return string.split('').reverse().join('');
-};
+// // reverse string function
+// const reverseString = function (string) {
+//   return string.split('').reverse().join('');
+// };
 
 // Strings in JavaScript cannot be reversed directly so you're going to have to split it into something else first..
 // do the reversal and then join it back together into a string.
@@ -49,11 +49,11 @@ const reverseString = function (string) {
 // };
 
 // WORKING VERSION
-const removeFromArray = function (arr, ...args) {
-  let arr2 = arr.filter(a => !args.includes(a));
+// const removeFromArray = function (arr, ...args) {
+//   let arr2 = arr.filter(a => !args.includes(a));
 
-  return arr2;
-};
+//   return arr2;
+// };
 
 // loop throguh an array in JS
 // for (let i = 0l i < arr.length; i++){
@@ -114,7 +114,7 @@ const removeFromArray = function (arr, ...args) {
 
 //Implement a function that takes 2 positive integers and returns the sum of every integer between (and including) them:
 
-sumAll(1, 4); // returns the sum of 1 + 2 + 3 + 4 which is 10
+// sumAll(1, 4); // returns the sum of 1 + 2 + 3 + 4 which is 10
 
 // make sure you pay attention to the function parameters
 // create a variable to hold the final sum
@@ -122,30 +122,29 @@ sumAll(1, 4); // returns the sum of 1 + 2 + 3 + 4 which is 10
 // on each iteration add the number to the sum
 // return the sum after finishing the loop
 
-const sumAll = function (a, b) {
-  let sum = 0;
+// const sumAll = function (a, b) {
+//   let sum = 0;
 
-  for (let i = a; i <= b; i++) {
-    sum += i;
-  }
-  return sum;
-};
+//   for (let i = a; i <= b; i++) {
+//     sum += i;
+//   }
+//   return sum;
+// };
 
 // need to rework for different cases:
 // if first integer is bigger than second- maybe to revert it
 // float numbers, negative numbers, arrays, bigint - to throw error
 
-
-const sumAll = function (a, b) {
-  let sum = 0;
-  for (let i = a; i <= b; i++) {
-    sum += i;
-  }
-  return sum;
-};
+// const sumAll = function (a, b) {
+//   let sum = 0;
+//   for (let i = a; i <= b; i++) {
+//     sum += i;
+//   }
+//   return sum;
+// };
 
 // Do not edit below this line
-module.exports = sumAll;
+// module.exports = sumAll;
 
 //positive integers, throw error if its negative,
 //variable to hold the final sum
@@ -154,7 +153,7 @@ module.exports = sumAll;
 //return sum after finishing the loop
 // 2 passed, 5 failed ... .needs rework
 
-//  TESTS 
+//  TESTS
 // describe("sumAll", () => {
 //   test("sums numbers within the range", () => {
 //     expect(sumAll(1, 4)).toEqual(10);
@@ -180,107 +179,128 @@ module.exports = sumAll;
 //   });
 // });
 
-need to make a fucntion that checks all of the requirements and throws an error, if its false to continue with the loop
+// need to make a fucntion that checks all of the requirements and throws an error, if its false to continue with the loop
 
-const sumAll = function (a, b) {
-  // let sum = 0;
-  // for (let i = a; i <= b; i++) {
-  //   sum += i;
-  // }
-  // return sum;
-  if (a > b) {
-    // swapping variables with temp variable
-    let a = a;
-    let b = b;
-    let temp;
+// My version
+// const sumAll = function (a, b) {
+//   // let sum = 0;
+//   // for (let i = a; i <= b; i++) {
+//   //   sum += i;
+//   // }
+//   // return sum;
+//   if (a > b) {
+//     // swapping variables with temp variable
+//     let a = a;
+//     let b = b;
+//     let temp;
 
-    temp = a;
-    a = b;
-    b = temp;
-    //
-  } else if (0 > a || 0 > b) {
-    return "ERROR";
-  } else if (a % 1 === 0 || b % 1 === 0) {
-    return "ERROR";
-  } else if (typeof a === "string" || b === "string") {
-    return "ERROR";
-  } else if (Array.isArray(a) || Array.isArray(b)) {
-    return "ERROR";
-  } else {
-    let sum = 0;
-    for (let i = a; i <= b; i++) {
-      sum += i;
-    }
-    return sum;
-  }
-};
+//     temp = a;
+//     a = b;
+//     b = temp;
+//     //
+//   } else if (0 > a || 0 > b) {
+//     return "ERROR";
+//   } else if (a % 1 === 0 || b % 1 === 0) {
+//     return "ERROR";
+//   } else if (typeof a === "string" || b === "string") {
+//     return "ERROR";
+//   } else if (Array.isArray(a) || Array.isArray(b)) {
+//     return "ERROR";
+//   } else {
+//     let sum = 0;
+//     for (let i = a; i <= b; i++) {
+//       sum += i;
+//     }
+//     return sum;
+//   }
+// };
 
+// research and gpt version
+// const sumAll = function (a, b) {
+//   let sum = 0;
 
-const sumAll = function (a, b) {
-  let sum = 0;
+//   // Check if the inputs are valid (non-integer, negative, or non-numeric)
+//   if (!Number.isInteger(a) || !Number.isInteger(b)) {
+//     return 'ERROR';
+//   }
+//   if (a < 0 || b < 0) {
+//     return 'ERROR';
+//   }
+//   if (typeof a !== 'number' || typeof b !== 'number') {
+//     return 'ERROR';
+//   }
 
-  // Check if the inputs are valid (non-integer, negative, or non-numeric)
-  if (!Number.isInteger(a) || !Number.isInteger(b)) {
-    return "ERROR";
-  }
-  if (a < 0 || b < 0) {
-    return "ERROR";
-  }
-  if (typeof a !== "number" || typeof b !== "number") {
-    return "ERROR";
-  }
+//   // Find the range to sum
+//   const start = Math.min(a, b);
+//   const end = Math.max(a, b);
 
-  // Find the range to sum
-  const start = Math.min(a, b);
-  const end = Math.max(a, b);
+//   // Calculate the sum
+//   for (let i = start; i <= end; i++) {
+//     sum += i;
+//   }
 
-  // Calculate the sum
-  for (let i = start; i <= end; i++) {
-    sum += i;
-  }
-
-  return sum;
-};
-
- 
-
-
+//   return sum;
+// };
 
 // /////////////////////////////////////////////////////////////////////
 
-Exercise 06 - leapYears
-Create a function that determines whether or not a given year is a leap year. Leap years are determined by the following rules:
+// Exercise 06 - leapYears
+// Create a function that determines whether or not a given year is a leap year. Leap years are determined by the following rules:
 
-Leap years are years divisible by four (like 1984 and 2004). However, years divisible by 100 are not leap years (such as 1800 and 1900) unless they are divisible by 400 (like 1600 and 2000, which were in fact leap years). (Yes, it's all pretty confusing)
+// Leap years are years divisible by four (like 1984 and 2004).
+// However, years divisible by 100 are not leap years (such as 1800 and 1900) unless they are divisible by 400
+// (like 1600 and 2000, which were in fact leap years). (Yes, it's all pretty confusing)
 
--- Learn to Program by Chris Pine
+// -- Learn to Program by Chris Pine
 
-leapYears(2000) // is a leap year: returns true
-leapYears(1985) // is not a leap year: returns false
-Hints
-use an if statement and && to make sure all the conditions are met properly
+// leapYears(2000) // is a leap year: returns true
+// leapYears(1985) // is not a leap year: returns false
+// Hints
+// use an if statement and && to make sure all the conditions are met properly
 
+const leapYears = function (year) {
+  // TRUE IF year % 4
+  // FALSE IF year % 100 BUT TRUE IF year % 400
 
-TESTS 
-const leapYears = require('./leapYears')
+  // if (year % 4 === 0) {
+  //   return console.log('TRUE');
+  // } else year % 100 === 0 && !(year % 400 === 0);
+  // {
+  //   return console.log('FALSE');
+  // }
 
-describe('leapYears', () => {
-  test('works with non century years', () => {
-    expect(leapYears(1996)).toBe(true);
-  });
-  test.skip('works with non century years', () => {
-    expect(leapYears(1997)).toBe(false);
-  });
-  test.skip('works with ridiculously futuristic non century years', () => {
-    expect(leapYears(34992)).toBe(true);
-  });
-  test.skip('works with century years', () => {
-    expect(leapYears(1900)).toBe(false);
-  });
-  test.skip('works with century years', () => {
-    expect(leapYears(1600)).toBe(true);
-  });
-  test.skip('works with century years', () => {
-    expect(leapYears(700)).toBe(false);
-  });
-});
+  // if (year % 100 === 0 && year % 400 !== 0 && year % 4 === 0) {
+  //   console.log('False');
+  // } else console.log('True');
+
+  if ((year % 100 !== 0 && year % 4 === 0) || year % 400 === 0) {
+    console.log('true');
+  } else console.log('false');
+};
+
+leapYears(1996);
+// module.exports = leapYears;
+
+// TESTS
+// const leapYears = require('./leapYears')
+
+// describe('leapYears', () => {
+//   test('works with non century years', () => {
+//     expect(leapYears(1996)).toBe(true);  //
+//   });
+//   test.skip('works with non century years', () => {
+//     expect(leapYears(1997)).toBe(false); //
+//   });
+//   test.skip('works with ridiculously futuristic non century years', () => {
+//     expect(leapYears(34992)).toBe(true); //
+//   });
+//   test.skip('works with century years', () => {
+//     expect(leapYears(1900)).toBe(false);
+//   });
+//   test.skip('works with century years', () => {
+//     expect(leapYears(1600)).toBe(true);
+//   });
+//   test.skip('works with century years', () => {
+//     expect(leapYears(700)).toBe(false);
+//   });
+// });
