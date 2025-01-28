@@ -258,27 +258,28 @@
 // Hints
 // use an if statement and && to make sure all the conditions are met properly
 
-const leapYears = function (year) {
-  // TRUE IF year % 4
-  // FALSE IF year % 100 BUT TRUE IF year % 400
+// const leapYears = function (year) {
+//   // TRUE IF year % 4
+//   // FALSE IF year % 100 BUT TRUE IF year % 400
 
-  // if (year % 4 === 0) {
-  //   return console.log('TRUE');
-  // } else year % 100 === 0 && !(year % 400 === 0);
-  // {
-  //   return console.log('FALSE');
-  // }
+//   // if (year % 4 === 0) {
+//   //   return console.log('TRUE');
+//   // } else year % 100 === 0 && !(year % 400 === 0);
+//   // {
+//   //   return console.log('FALSE');
+//   // }
 
-  // if (year % 100 === 0 && year % 400 !== 0 && year % 4 === 0) {
-  //   console.log('False');
-  // } else console.log('True');
+//   // if (year % 100 === 0 && year % 400 !== 0 && year % 4 === 0) {
+//   //   console.log('False');
+//   // } else console.log('True');
 
-  if ((year % 100 !== 0 && year % 4 === 0) || year % 400 === 0) {
-    console.log('true');
-  } else console.log('false');
-};
+//   if ((year % 100 !== 0 && year % 4 === 0) || year % 400 === 0) {
+//     console.log('true');
+//   } else console.log('false');
+// };
 
-leapYears(1996);
+// // WOOOORKS!
+// leapYears(1996);
 // module.exports = leapYears;
 
 // TESTS
@@ -304,3 +305,59 @@ leapYears(1996);
 //     expect(leapYears(700)).toBe(false);
 //   });
 // });
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// EX 7
+// Exercise 07 - tempConversion
+// Write two functions that convert temperatures from Fahrenheit to Celsius, and vice versa:
+
+// convertToCelsius(32) // fahrenheit to celsius, should return 0
+
+// convertToFahrenheit(0) // celsius to fahrenheit, should return 32
+
+// Because we are human, we want the result temperature to be rounded to one decimal place: i.e., convertToCelsius(100) should return 37.8 and not 37.77777777777778.
+
+// This exercise asks you to create more than one function so the module.exports section of the main javascript file looks a little different this time.
+// Nothing to worry about, we're just packaging both functions into a single object to be exported.
+
+// WIKI for  formulas : https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature
+// Try to find by yourself on the Internet how to round a number to 1 decimal place in JavaScript. If you struggle, have a look-
+// https://stackoverflow.com/questions/7342957/how-do-you-round-to-one-decimal-place-in-javascript
+
+const convertToCelsius = function () {};
+
+const convertToFahrenheit = function () {};
+
+// Do not edit below this line
+module.exports = {
+  convertToCelsius,
+  convertToFahrenheit,
+};
+
+// Tests
+const { convertToCelsius, convertToFahrenheit } = require('./tempConversion');
+
+describe('convertToCelsius', () => {
+  test('works', () => {
+    expect(convertToCelsius(32)).toEqual(0);
+  });
+  test.skip('rounds to 1 decimal', () => {
+    expect(convertToCelsius(100)).toEqual(37.8);
+  });
+  test.skip('works with negatives', () => {
+    expect(convertToCelsius(-100)).toEqual(-73.3);
+  });
+});
+
+describe('convertToFahrenheit', () => {
+  test.skip('works', () => {
+    expect(convertToFahrenheit(0)).toEqual(32);
+  });
+  test.skip('rounds to 1 decimal', () => {
+    expect(convertToFahrenheit(73.2)).toEqual(163.8);
+  });
+  test.skip('works with negatives', () => {
+    expect(convertToFahrenheit(-10)).toEqual(14);
+  });
+});
