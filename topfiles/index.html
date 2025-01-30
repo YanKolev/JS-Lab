@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- <div id="container">
+      <div class="display"></div>
+      <div class="controls"></div>
+    </div> -->
+
+    <!-- In the above example, the
+    <div class="display"></div>
+    is a “child” of
+    <div id="container"></div>
+    and a “sibling” to
+    <div class="controls"></div>
+    . Think of it like a family tree.
+    <div id="container"></div>
+    is a parent, with its children on the next level, each on their own
+    “branch”. -->
+
+    <!-- We can use different selectors to target the nodes that we want to work with. Available for use  are CSS-style selectors
+     with a combination of propers to target exactly what we want. CSS Style selectors to target <div class="display"></div>
+
+      div.display
+      display
+      #container > .display
+      div#container > div.display
+
+      // selects the #container div (don't worry about the syntax, we'll get there)
+      const container = document.querySelector("#container");
+      // selects the first child of #container => .display
+      const display = container.firstElementChild;
+      console.log(display);  // <div class="display"></div>
+
+      // selects the .controls div
+      const controls = document.querySelector(".controls");
+
+      // selects the prior sibling => .display
+      const display = controls.previousElementSibling;
+      console.log(display); // <div class="display"></div>
+
+      Query selectors
+      element.querySelector(selector) - returns a reference to the first match of selector.
+      element.querySelectorAll(selectors) - returns a “NodeList” containing references to all of the matches of the selectors.
+        NB when using SelectorALL is NOT AN ARRAY . IF needed can be converted to an array with ARRAY.from() or spread operator
+
+      Element creation
+        document.createElement(tagName, [options]) - creates a new element of tag type tagName. 
+        [options] in this case means you can add some optional parameters to the function.
+
+        const div = document.createElement("div");
+
+        NB!!! This function does NOT put your new element into the DOM - it creates it in memory.
+
+        You can place the element into the DOM with one of the following methods.
+
+        1)Append elements
+        parentNode.appendChild(childNode) - appends childNode as the last child of parentNode.
+        parentNode.insertBefore(newNode, referenceNode) - inserts newNode into parentNode before referenceNode.
+        
+        2)Remove elements
+        parentNode.removeChild(child) - removes child from parentNode on the DOM and returns a reference to child.
+        -->
+    <h1>THE TITLE OF YOUR WEBPAGE</h1>
+    <div id="container"></div>
+  </body>
+</html>
