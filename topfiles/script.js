@@ -78,13 +78,62 @@
 //   e.target.style.background = 'blue';
 // });
 
-// Buttons is a node list. It looks and acts much like an array.
-const buttons = document.querySelectorAll('button');
+// // Buttons is a node list. It looks and acts much like an array.
+// const buttons = document.querySelectorAll('button');
 
-// we use the .forEach method to iterate through each button
-buttons.forEach(button => {
-  // and for each one we add a 'click' listener
-  button.addEventListener('click', () => {
-    alert(button.id);
-  });
-});
+// // we use the .forEach method to iterate through each button
+// buttons.forEach(button => {
+//   // and for each one we add a 'click' listener
+//   button.addEventListener('click', () => {
+//     alert(button.id);
+//   });
+// });
+
+//To manipulate an element inside the DOM, you first need to select it and store a reference to it inside a variable.
+
+const link = document.querySelector('a');
+
+link.href = 'https://developer.mozilla.org';
+
+const sect = document.querySelector('section');
+
+const para = document.createElement('p');
+para.textContent = 'We hope you enjoyed the ride';
+
+sect.appendChild(para);
+
+//add a text node to the paragraph the link sits inside
+
+const text = document.createTextNode(
+  ' - the premier source for web development knowledge.'
+);
+
+const linkPara = document.querySelector('p');
+linkPara.appendChild(text);
+
+//This moves the paragraph down to the bottom of the section.
+sect.appendChild(linkPara);
+
+// You might have thought it would make a second copy of it,
+// but this is not the case — linkPara is a reference to the one and only copy of that paragraph.
+// If you wanted to make a copy and add that as well, you'd need to use Node.cloneNode() instead.
+
+//removing a node- whenyou have a refrence to the node to be removed and its parent
+sect.removeChild(linkPara);
+
+//Variation is if you want to remove a node based only on a refrence to itself- you can use Element.remove()
+//linkPara.remove();
+
+//styling- inline styling information
+// para.style.color = 'white';
+// para.style.backgroundColor = 'black';
+// para.style.padding = '10px';
+// para.style.width = '250px';
+// para.style.textAlign = 'center';
+
+//javascript property version of CSS are written in lower camel case ->backgroundColor
+//CSS versions are hyphenated(kebab-case) ->background-color
+
+//Element.setAttribute()- takes two arguments, the attribuet you want to set on the element, and the value you want to set to it
+para.setAttribute('class', 'highlight');
+//this method is more used for larger and involed apps, + more purist.
