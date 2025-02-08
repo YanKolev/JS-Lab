@@ -23,13 +23,13 @@
 
 //   // newBtn.addEventListener('onclick', function (e) {
 //   //   // const newList = document.getElementsByName('li');
-//   //   list.removeChild(list.firstElementChild);
+//   //   list.removeChild(list.firstElementChild); // try with instead of list.first el child - just to newList
 //   // });
 
 //   newBtn.addEventListener('click', removeList);
 
 //   function removeList() {
-//     list.remove(document.querySelector('li'));
+//     list.remove(document.querySelector('li')); here also newList so it targets the element, Needs rework
 //   }
 // }
 
@@ -47,10 +47,10 @@ button.addEventListener('click', () => {
   const listBnt = document.createElement('buton');
 
   listItem.appendChild(listText);
-  listText.textContent = myItem;
+  listText.textContent = myItem; //missed this
   listItem.appendChild(listBnt);
   listBnt.textContent = 'Delete';
-  list.appendChild(listItem);
+  list.appendChild(listItem); // this also,
 
   listBnt.addEventListener('click', () => {
     list.removeChild(listItem);
