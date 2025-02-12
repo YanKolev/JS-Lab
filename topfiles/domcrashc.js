@@ -110,21 +110,21 @@
 
 //grabs more than one thin
 
-const titles = document.querySelectorAll('.title');
-console.log(titles); // give us a node list its a similar to a collection BUT WE CAN RUN FUNCTIONS ON ARRAY LISTS
-titles[0].textContent = 'Hello!';
+// const titles = document.querySelectorAll('.title');
+// console.log(titles); // give us a node list its a similar to a collection BUT WE CAN RUN FUNCTIONS ON ARRAY LISTS
+// titles[0].textContent = 'Hello!';
 
-const odd = document.querySelectorAll('li:nth-child(odd)');
-const even = document.querySelectorAll('li:nth-child(even)');
+// const odd = document.querySelectorAll('li:nth-child(odd)');
+// const even = document.querySelectorAll('li:nth-child(even)');
 
-for (let i = 0; i < odd.length; i++) {
-  odd[i].style.backgroundColor = 'grey';
-  even[i].style.backgroundColor = 'darkgrey';
-}
+// for (let i = 0; i < odd.length; i++) {
+//   odd[i].style.backgroundColor = 'grey';
+//   even[i].style.backgroundColor = 'darkgrey';
+// }
 
 //TRAVERSING THE DOM
 
-const itemList = document.querySelector('#items');
+// const itemList = document.querySelector('#items');
 //parentNode propery
 // console.log(itemList.parentNode);
 
@@ -178,32 +178,154 @@ const itemList = document.querySelector('#items');
 ////////////////////////////////////////////////////////////////////
 //CREATING ELEMENTS AND INSERTING THEM
 
-//create a div
+// //create a div
 
-const newDiv = document.createElement('div');
+// const newDiv = document.createElement('div');
+// // console.log(newDiv);
+
+// //Add Class
+// newDiv.className = 'hello';
+
+// //Add id
+// newDiv.id = 'hello1';
+
+// //add attribute
+// newDiv.setAttribute('title', 'Hello div');
+
+// // to insert information we need to create a text node
+// const newDivText = document.createTextNode('Hello World');
+// //then we need to add the txt to div with appendchild
+// newDiv.appendChild(newDivText);
+
+// //to insert information in the html
+// const container = document.querySelector('header .container');
+// const h1 = document.querySelector('header h1');
+
 // console.log(newDiv);
 
-//Add Class
-newDiv.className = 'hello';
+// newDiv.style.fontSize = '30px'; // it can be treated like any other DOM element
 
-//Add id
-newDiv.id = 'hello1';
+// //needs 2 parameters- the one element that we want to put in and the element BEFORE we want to put
+// container.insertBefore(newDiv, h1);
 
-//add attribute
-newDiv.setAttribute('title', 'Hello div');
+//////////////////////////////////////////////////////////////////////////////////
 
-// to insert information we need to create a text node
-const newDivText = document.createTextNode('Hello World');
-//then we need to add the txt to div with appendchild
-newDiv.appendChild(newDivText);
+//DOM EVENTS//
 
-//to insert information in the html
-const container = document.querySelector('header .container');
-const h1 = document.querySelector('header h1');
+//how to add eventlistener
 
-console.log(newDiv);
+// const button = document
+//   .getElementById('button')
+//   .addEventListener('click', buttonClick);
 
-newDiv.style.fontSize = '30px'; // it can be treated like any other DOM element
+// function buttonClick(e) {
+// console.log('Button Clicked'); duuh
+// document.getElementById('header-title').textContent = 'Changed'; changes text
+// document.querySelector('#main').style.backgroundColor = 'pink'; changes color
+//we can also pass in a parameter e inside the funcion, E stands for event
+//console.log(e);
+// console.log(e.target); // give us the whatever element the event is fired from
+// console.log(e.target.id);
+// console.log(e.target.className);
+// console.log(e.target.classList); // gives an array of the classes
+// const output = document.getElementById('output'); // hits the empty div that we made under the UL, and puts the target as h3
+// output.innerHTML = '<h3>' + e.target.id + '</h3>'; //h3 concatinated with the target event
+// //using type of event that it is
+// console.log(e.type);
+// //position of the mouse with X and Y axis - PRINTS THE POSITON OF THE WINDOW
+// console.log(e.clientX);
+// console.log(e.clientY);
+// //if you want to get the position from the actual element that you are inside
+// console.log(e.offsetX);
+// console.log(e.offsetY);
+//we can also see if you are holding alt key or shift key or control key
 
-//needs 2 parameters- the one element that we want to put in and the element BEFORE we want to put
-container.insertBefore(newDiv, h1);
+//   console.log(e.altKey); // prints true or false
+//   console.log(e.ctrlKey);
+//   console.log(e.shiftKey);
+//   //this allows for different functionality fir yiur script
+
+// }
+
+//////// MOUSE EVENTS /////
+
+const button = document.getElementById('button');
+const box = document.getElementById('box');
+
+//button.addEventListener('click', runEvent);
+
+//button.addEventListener('dblclick', runEvent); // it will activate only when double click
+
+//button.addEventListener('mousedown', runEvent); //activate only on mouse down
+
+//button.addEventListener('mouseup', runEvent); // event fires when mouse is released
+
+//box.addEventListener('mouseenter', runEvent); //its for the  parent element itself
+//box.addEventListener('mouseleave', runEvent); // its for the parent element
+
+//box.addEventListener('mouseover', runEvent); //for any inner elements
+//box.addEventListener('mouseout', runEvent); for inner element
+
+// box.addEventListener('mousemove', runEvent);
+
+// function runEvent(e) {
+//   console.log('Event Type:' + e.type);
+
+//   //shows where the mouse coordinates are
+//   // output.innerHTML =
+//   //   '<h3>MouseX: ' + e.offsetX + '</h3><h3>MouseY: ' + e.offsetY;
+//   // ('</h3>');
+
+//   //it wil color the box with the rgb values of offset of the mousse and 3rd valiue for blue is a static number
+//   //box.style.backgroundColor = 'rgb(' + e.offsetX + ',' + e.offsetY + ',40)';
+
+//   //whole body of the document changes according to mouse movements
+
+//   //document.body.style.backgroundColor ='rgb(' + e.offsetX + ',' + e.offsetY + ',40)';
+// }
+
+///// KEYBOARD EVENTS //////////
+
+const itemInput = document.querySelector('input[type=text]');
+const form = document.querySelector('form');
+const select = document.querySelector('select');
+
+//itemInput.addEventListener('keydown', runEvent); //everytime that we type it will fireoff
+
+//keyupeven it will fire when we release the key
+// itemInput.addEventListener('keyup', runEvent);
+
+//keypress
+// itemInput.addEventListener('keypress', runEvent);
+
+//focus event on click in
+// itemInput.addEventListener('focus', runEvent);
+
+//blur event when we click out
+// itemInput.addEventListener('blur', runEvent);
+
+//cut event- self explanatory
+// itemInput.addEventListener('cut', runEvent);
+
+// //paste event- self explanatory
+// itemInput.addEventListener('paste', runEvent);
+
+//input will do with anything that is related to an input
+// itemInput.addEventListener('input', runEvent);
+
+//added a select option in the HTML and if we want something to fire off, we will need the change event
+
+//change event on the sudmit dropdown
+//select.addEventListener('change', runEvent);
+
+form.addEventListener('submit', runEvent);
+
+function runEvent(e) {
+  e.preventDefault(); // we need this function to prevent the default functionality of the form so we can use the submit event in JS
+  console.log('Event Type:' + e.type);
+
+  // console.log(e.target.value);// WILL ASO WORK FOR CHANGE EVEN  THE SELECT DROPDOWN
+  // // logs what we are typing and injects it as a innerhtml
+  // document.getElementById('output').innerHTML =
+  //   '<h3>' + e.target.value + '</h3>';
+}
