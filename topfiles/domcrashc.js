@@ -249,8 +249,8 @@
 
 //////// MOUSE EVENTS /////
 
-const button = document.getElementById('button');
-const box = document.getElementById('box');
+// const button = document.getElementById('button');
+// const box = document.getElementById('box');
 
 //button.addEventListener('click', runEvent);
 
@@ -286,9 +286,9 @@ const box = document.getElementById('box');
 
 ///// KEYBOARD EVENTS //////////
 
-const itemInput = document.querySelector('input[type=text]');
-const form = document.querySelector('form');
-const select = document.querySelector('select');
+// const itemInput = document.querySelector('input[type=text]');
+// const form = document.querySelector('form');
+// const select = document.querySelector('select');
 
 //itemInput.addEventListener('keydown', runEvent); //everytime that we type it will fireoff
 
@@ -318,14 +318,98 @@ const select = document.querySelector('select');
 //change event on the sudmit dropdown
 //select.addEventListener('change', runEvent);
 
-form.addEventListener('submit', runEvent);
+// form.addEventListener('submit', runEvent);
 
-function runEvent(e) {
-  e.preventDefault(); // we need this function to prevent the default functionality of the form so we can use the submit event in JS
-  console.log('Event Type:' + e.type);
+// function runEvent(e) {
+//   e.preventDefault(); // we need this function to prevent the default functionality of the form so we can use the submit event in JS
+//   console.log('Event Type:' + e.type);
 
-  // console.log(e.target.value);// WILL ASO WORK FOR CHANGE EVEN  THE SELECT DROPDOWN
-  // // logs what we are typing and injects it as a innerhtml
-  // document.getElementById('output').innerHTML =
-  //   '<h3>' + e.target.value + '</h3>';
+//   // console.log(e.target.value);// WILL ASO WORK FOR CHANGE EVEN  THE SELECT DROPDOWN
+//   // // logs what we are typing and injects it as a innerhtml
+//   // document.getElementById('output').innerHTML =
+//   //   '<h3>' + e.target.value + '</h3>';
+// }
+
+//part 4
+
+//can also be used with queryselector
+const form = document.getElementById('addForm');
+const itemList = document.getElementById('items');
+const filter = document.getElementById('filter');
+//form submit event
+
+form.addEventListener('submit', addItem);
+
+//Delete event
+itemList.addEventListener('click', removeItem);
+
+//filter event
+filter.addEventListener('keyup', filterItems);
+
+//add item
+function addItem(e) {
+  e.preventDefault(); //for normal submission to NOT HAPPEN
+
+  //get input value
+  const newItem = document.getElementById('item').value;
+
+  //create new li element
+  const li = document.createElement('li');
+
+  //add class
+  li.className = 'list-group-item';
+
+  //append the text, add text node with input value
+  li.appendChild(document.createTextNode(newItem));
+
+  //create de button element
+  const deleteBtn = document.createElement('button');
+
+  //add classes to delete btn
+
+  deleteBtn.classList = 'btn btn-danger,btn-sm-float-right delete';
+
+  //append text note
+  deleteBtn.appendChild(docustomElements.createTextNode('X'));
+
+  //append button to li
+  li.appendChild(deleteBtn);
+
+  //append li to list
+  itemList.appendChild(li);
+}
+
+//removeItem
+
+function removeItem(e) {
+  if (e.target.classList.contains('delete')) {
+    if (confirm('Are you sure?')) {
+      const li = e.target.parentElemnt; // we want the parent element, we are clickin on the button and we want to remove the child
+      itemList.removeChild(li);
+      //li is the child of the itemList which is a UL
+    }
+  }
+}
+
+//filterItems
+function filterItems(e) {
+  // convert to lowercase
+  const text = e.target.value.toLowerCase();
+  // console.log(text);
+
+  //get list
+  const items = itemList.getElementsByTagName('li');
+  // we need to convert the html collection into an array
+  Array.from(items).forEach(function (item) {
+    const itemName = item.firstChild.textContent;
+    // console.log(itemName);
+
+    //we need to compare the item name to the searchbox text
+    //we use if its NOT a -1(egative one). means its a match
+    if (itemName.toLowerCase.indexof(text) != -1) {
+      item.style.display = 'block'; // we want to show the item
+    } else {
+      item.style.display = 'none'; // we want to hide it
+    }
+  });
 }
