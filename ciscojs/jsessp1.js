@@ -182,28 +182,28 @@
 // Understanding ECMAScript 6, Nicholas C. Zakas, 352.
 // Create an array of three objects representing the books. Each object must have the following properties: title, author, pages.
 
-let books = [
-  { title: 'Speaking JavaScript', author: 'Axel Rauschmayer', pages: 460 },
-  {
-    title: 'Programming JavaScript Applications',
-    author: 'Eric Elliott',
-    pages: 254,
-  },
-  {
-    title: 'Understanding ECMAScript 6',
-    author: 'Nicholas C. Zakas',
-    pages: 352,
-  },
-];
+// let books = [
+//   { title: 'Speaking JavaScript', author: 'Axel Rauschmayer', pages: 460 },
+//   {
+//     title: 'Programming JavaScript Applications',
+//     author: 'Eric Elliott',
+//     pages: 254,
+//   },
+//   {
+//     title: 'Understanding ECMAScript 6',
+//     author: 'Nicholas C. Zakas',
+//     pages: 352,
+//   },
+// ];
 
-// Question 4: Add a new book to the collection: Learning JavaScript Design Patterns, by Addy Osmani, 254 pages.
-// Use the appropriate method to do this, which will attach the book at the end of the array. Display the length of the array and, in turn, all the book names in the collection.
+// // Question 4: Add a new book to the collection: Learning JavaScript Design Patterns, by Addy Osmani, 254 pages.
+// // Use the appropriate method to do this, which will attach the book at the end of the array. Display the length of the array and, in turn, all the book names in the collection.
 
-books.push({
-  title: 'Learning JavaScript Design Patterns',
-  author: 'Addy Osmani',
-  pages: 254,
-});
+// books.push({
+//   title: 'Learning JavaScript Design Patterns',
+//   author: 'Addy Osmani',
+//   pages: 254,
+// });
 
 //course variant
 // let newBook = {
@@ -407,31 +407,7 @@ books.push({
 //Conditional execution Lab
 /////////////////////////////////////////////
 
-//code from previus lab
-let contactName = window.prompt('Contact name you want to add', 'John Doe');
-contactName = contactName ? contactName : 'anonymous';
-let contactPhone = window.prompt('Contact phone you want to add ', '080001112');
-contactPhone = contactPhone ? contactPhone : 'Not a number';
-let contactEmail = window.prompt(
-  'Contact email you want to add',
-  'example@example.com'
-);
-contactEmail = contactEmail ? contactEmail : 'Invalid email';
-
-contacts.push(
-  `{name: ${contactName}, phone: ${contactPhone}, email: ${contactEmail}}`
-);
-
-//try to modify  the program so that the user has a choice of what they want to do with the list.
-
-//they will have a choice of:
-
-// showing the first contact (first)
-// show last contact (last )
-// add new contact
-
-// -When adding a new cotnact, check if the user has entered all the necessary Data. if at least one of the three value is missing (name, phone or email) dont add the contact
-
+//original array:
 let contacts = [
   {
     name: 'Maxwell Wright',
@@ -449,3 +425,58 @@ let contacts = [
     email: 'libero@convallis.edu',
   },
 ];
+
+//code from previus lab
+// let contactName = window.prompt('Contact name you want to add', 'John Doe');
+// contactName = contactName ? contactName : 'anonymous';
+// let contactPhone = window.prompt('Contact phone you want to add ', '080001112');
+// contactPhone = contactPhone ? contactPhone : 'Not a number';
+// let contactEmail = window.prompt(
+//   'Contact email you want to add',
+//   'example@example.com'
+// );
+// contactEmail = contactEmail ? contactEmail : 'Invalid email';
+
+// contacts.push(
+//   `{name: ${contactName}, phone: ${contactPhone}, email: ${contactEmail}}`
+// );
+
+//try to modify  the program so that the user has a choice of what they want to do with the list.
+
+//they will have a choice of:
+
+// showing the first contact (first)
+// show last contact (last )
+// add new contact
+
+// -When adding a new cotnact, check if the user has entered all the necessary Data. if at least one of the three value is missing (name, phone or email) dont add the contact
+
+const initialMsg = window.prompt(
+  'Select Action: 1:Show Contacts 2:Add New Contact'
+);
+
+if key press 1 lead to second loop:
+  show first contact press 1 (it will be in array at position 0 ) const first = array[0] 
+  show last contact press 2 ( it will be in array at position) const last = array[array.lenght-1]
+  show all contact press 3 () console.log(contacts);
+
+
+
+if key press 2 Add new contact //reuse the code from last lab? 
+
+if key press is NOT 1 OR 2 invalid command
+
+keycodes on keyboard: 
+
+1 keycode ==49
+2 keycode ==50
+3 keycode ==51
+4-Enter: keyCode == 13
+
+document.addEventListener('keypress', function(event){
+  if (event.keycode ==13){
+    console.log('You pressed enter');
+  }
+})
+
+//https://www.youtube.com/watch?v=8__gPh2F8xM
