@@ -849,7 +849,8 @@ if (condition) {
     block of code
 }
 
-Using the if instruction and closing the selected instructions in the block (using curly brackets), we can cause them to be executed only when certain circumstances occur (i.e. the condition we’ve invented is fulfilled). Remember that variables and constants declared using let and const inside a block are local, that is, their scope is limited to that particular block.
+Using the if instruction and closing the selected instructions in the block (using curly brackets), we can cause them to be executed only when certain circumstances occur (i.e. the condition we’ve invented is fulfilled). 
+Remember that variables and constants declared using let and const inside a block are local, that is, their scope is limited to that particular block.
 
 let userAge = 23;
 let isFemale = false;
@@ -895,7 +896,10 @@ if (isUserReady) {
 
 - IF.... else .... if statement 
 
-Both if and if … else statements give us great flexibility in how code can behave in relation to anything else. But branching the code execution flow only to two branches is sometimes not enough. There’s a simple solution to this in JavaScript – we can nest if ... else statements. How does this work? An else segment can have an if or if … else statement inside it, and it’s possible to nest any number of if … else statements in this way if needed.
+Both if and if … else statements give us great flexibility in how code can behave in relation to anything else. 
+But branching the code execution flow only to two branches is sometimes not enough. 
+There’s a simple solution to this in JavaScript – we can nest if ... else statements. 
+How does this work? An else segment can have an if or if … else statement inside it, and it’s possible to nest any number of if … else statements in this way if needed.
 
 The syntax for this looks like this:
 
@@ -1011,3 +1015,5 @@ switch (gate) {
 if (win) {
    alert("Winner!");
 }
+
+
