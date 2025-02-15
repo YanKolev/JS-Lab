@@ -455,28 +455,26 @@ const initialMsg = window.prompt(
   'Select Action: 1:Show Contacts 2:Add New Contact'
 );
 
-if key press 1 lead to second loop:
-  show first contact press 1 (it will be in array at position 0 ) const first = array[0] 
-  show last contact press 2 ( it will be in array at position) const last = array[array.lenght-1]
-  show all contact press 3 () console.log(contacts);
+// if key press 1 lead to second loop:
+//   show first contact press 1 (it will be in array at position 0 ) const first = array[0]
+//   show last contact press 2 ( it will be in array at position) const last = array[array.lenght-1]
+//   show all contact press 3 () console.log(contacts);
 
+// if key press 2 Add new contact //reuse the code from last lab?
 
+// if key press is NOT 1 OR 2 invalid command
 
-if key press 2 Add new contact //reuse the code from last lab? 
+// keycodes on keyboard:
 
-if key press is NOT 1 OR 2 invalid command
+// 1 keycode ==49
+// 2 keycode ==50
+// 3 keycode ==51
+// 4-Enter: keyCode == 13
 
-keycodes on keyboard: 
+// document.addEventListener('keypress', function(event){
+//   if (event.keycode ==13){
+//     console.log('You pressed enter');
+//   }
+// })
 
-1 keycode ==49
-2 keycode ==50
-3 keycode ==51
-4-Enter: keyCode == 13
-
-document.addEventListener('keypress', function(event){
-  if (event.keycode ==13){
-    console.log('You pressed enter');
-  }
-})
-
-//https://www.youtube.com/watch?v=8__gPh2F8xM
+// //https://www.youtube.com/watch?v=8__gPh2F8xM
