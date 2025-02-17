@@ -51,6 +51,60 @@ Also there are Query Selectors. 2 types of query selector:
 
 ### How can you alter an element in the DOM?
 
+- It can be done in couple of ways. Most usefull will be adding, removing or altering attributes, changing classes or adding inline style information.
+
+```js
+// adds the indicated style rule to the element in the div variable
+div.style.color = 'blue';
+
+// adds several style rules
+div.style.cssText = 'color: blue; background: white;';
+
+// adds several style rules
+div.setAttribute('style', 'color: blue; background: white;');
+
+// dot notation with kebab case: doesn't work as it attempts to subtract color from div.style.background
+// equivalent to: div.style.background - color
+div.style.background - color;
+
+// dot notation with camelCase: works, accesses the div's background-color style
+div.style.backgroundColor;
+
+// bracket notation with kebab-case: also works
+div.style['background-color'];
+
+// bracket notation with camelCase: also works
+div.style['backgroundColor'];
+
+// if id exists, update it to 'theDiv', else create an id with value "theDiv"
+div.setAttribute('id', 'theDiv');
+
+// returns value of specified attribute, in this case "theDiv"
+div.getAttribute('id');
+
+// removes specified attribute
+div.removeAttribute('id');
+
+// adds class "new" to your new div
+div.classList.add('new');
+
+// removes "new" class from div
+div.classList.remove('new');
+
+// if div doesn't have class "active" then add it, or if it does, then remove it
+div.classList.toggle('active');
+
+// creates a text node containing "Hello World!" and inserts it in div
+div.textContent = 'Hello World!';
+
+// renders the HTML inside div
+div.innerHTML = '<span>Hello World!</span>';
+```
+
+**NB! Note that using textContent is preferred over innerHTML for adding text, as innerHTML should be used sparingly to avoid potential security risks**
+
+---
+
 ### When adding text to a DOM element, should you use textContent or innerHTML? Why?
 
 ### Where should you include your JavaScript tag in your HTML file when working with DOM nodes?
