@@ -107,20 +107,111 @@ div.innerHTML = '<span>Hello World!</span>';
 
 ### When adding text to a DOM element, should you use textContent or innerHTML? Why?
 
+- Prevention of cross-site scripting attack.
+- Safer approach will be to use textContent over innerHTML to avoid aforementioned JS injections.
+
 ### Where should you include your JavaScript tag in your HTML file when working with DOM nodes?
+
+- Old way it will be to put it at the end of the html file, but it can be placed at the top alongside defer attribute,
+  which will allow the html to load first and then JS file, without blocking content.
 
 ### How do “events” and “listeners” work?
 
+- Events are actions that occur on your webpage, such a mouse-clicks or key-persses.
+
 ### What are three ways to use events in your code?
+
+1. Specify a function attributes directly ontho your html elements.
+
+2. Set properties in the for of `on<eventType>` , such as `onclick` or `onmousedown`, on the
+   DOM nodes in your JavaScript.
+
+3.Attaching event listenersto the DOM nodes in your JS file.
+**Last method is the preffered**
 
 ### Why are event listeners the preferred way to handle events?
 
+Becauswe we maintain sepration of convers, and allow multiple event listeners if the need arises.
+
 ### What are the benefits of using named functions in your listeners?
+
+- Cleans up the code if you are going to use it in multiple places.
+- we can also create so-called `callback functions` - we pass in `alertFunction` or `function (e) {...}` as an argument to addEventListener
+  A callback is simply a function that is passed into another function as an argument.
 
 ### How do you attach listeners to groups of nodes?
 
+- When have to attach lost of similar events to many elements, we can get a NodeList of all the items matching a specific
+  selector with `querySelectorAll('selector')`
+
+```html
+<div id="container">
+  <button id="one">Click Me</button>
+  <button id="two">Click Me</button>
+  <button id="three">Click Me</button>
+</div>
+```
+
+```js
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
+
+// we use the .forEach method to iterate through each button
+buttons.forEach(button => {
+  // and for each one we add a 'click' listener
+  button.addEventListener('click', () => {
+    alert(button.id);
+  });
+});
+```
+
 ### What is the difference between the return values of querySelector and querySelectorAll?
+
+`element.querySelector(selector)` - returns a a refrence to the first match of the selector
+`element.querySelectorAll(selectors)` - returns a NodeList containing reference to all the matches of the selectors
 
 ### What does a “NodeList” contain?
 
+- Its a collection of document nodes(element nodes, attribute nodes and text nodes).
+  HTML collection items can be accessed by their name, id or index number. NodeList items can only be accessed by their index number.
+
 ### Explain the difference between “capture” and “bubbling”.
+
+Event flow explains the order in which events are received on the page from the element where the event occurs and propagated through the DOM tree.
+
+There are two main event models:
+
+1.Event bubbling - an event starts at the most specific element and then flows upward toward the least specific element (the document or even window).
+When you click the button, the click event occurs in the following order:
+
+    1.button
+    2.div with the id container
+    3.body
+    4.html
+    5.document
+
+The `click` event first occurs on the button which is the element that was clicked.
+
+Then the `click` event goes up the DOM tree, firing on each node along its way until it reaches the `document` object.
+
+2.Event capturing - In the event-capturing model, an event starts at the least specific element and flows downward toward the most specific element.
+
+When you click the button, the click event occurs in the following order:
+
+    1.document
+    2.html
+    3.body
+    4.div with the id container
+    5.button
+
+#### DOM Level 2 Event flow
+
+DOM level 2 events specify that event flow has three phases:
+
+- First, event capturing occurs, which provides the opportunity to intercept the event.
+
+- Then, the actual target receives the event.
+
+- Finally, event bubbling occurs, which allows a final response to the event.
+
+More info can be obtained [JS tutorial](https://www.javascripttutorial.net/javascript-dom/javascript-events/)
